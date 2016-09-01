@@ -3,231 +3,472 @@
 
 <!-- Head tag -->
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Buffering...">
+    <meta name="keyword"  content="undefined">
+    <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <!--Description-->
-    
-        <meta name="description" content="Buffering...">
-    
+    <title>
+        
+          undefined
+        
+    </title>
 
-    <!--Author-->
-    
-        <meta name="author" content="Jeavil">
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="Jeavil&#39;s Blog"/>
-    
-
-    <!--Open Graph Description-->
-    
-        <meta property="og:description" content="Buffering..." />
-    
-
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="Jeavil&#39;s Blog"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="website" />
-    
-
-    <!--Page Cover-->
-    
-
-        <meta name="twitter:card" content="summary" />
-    
-
-    <!-- Title -->
-    
-    <title>page - Jeavil&#39;s Blog</title>
+    <link rel="canonical" href="http://yoursite.com/page/2/">
 
     <!-- Bootstrap Core CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
 
     <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
-
-    <!-- Google Analytics -->
-    
-
-
+    <!-- ga & ba script hoook -->
+    <script></script>
 </head>
 
 
-<body>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
 
-    <!-- Menu -->
     <!-- Navigation -->
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <button type="button" class="navbar-toggle">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Configurable Title</a>
+            <a class="navbar-brand" href="/">Jeavil&#39;s Blog</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">
-                            
-                                Home
-                            
-                        </a>
+                        <a href="/">Home</a>
                     </li>
-                
-                    <li>
-                        <a href="/archives">
-                            
-                                Archives
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
-                            
-                                <i class="fa fa-github fa-stack-2x"></i>
-                            
-                        </a>
-                    </li>
-                
-            </ul>
+
+                    
+                    
+                </ul>
+            </div>
         </div>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
 </nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
 
     <!-- Main Content -->
     <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
-<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+<header class="intro-header" style="background-image: url('/undefined')">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
                 <div class="site-heading">
-                    <h1>Jeavil's Blog</h1>
-                    <hr class="small">
-                    <span class="subheading">iOS Developer</span>
+                    <h1>Jeavil&#39;s Blog</h1>
+                    <!--<hr class="small">-->
+                    <span class="subheading"></span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+
+
 <!-- Main Content -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2016/05/17/iOS9 UIView (I)/">
-        <h2 class="post-title">
-            iOS9 UIView(I)
-        </h2>
         
+
+<!-- USE SIDEBAR -->
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container
+            ">
+            
+                <!-- Main Content -->
+
+
+<div class="post-preview">
+
+    <a href="/2016/06/01/iOS9 Programming Autolayout(II)/">
+        <h2 class="post-title">
+            iOS9 Programming Autoayout (II)
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            今天跟大家聊一聊Autolayout第二小节的内容，在阅读之前希望你能先了解一下叫做 “Anchor” (锚点) 的东东，老实说，我对这个东西的了解也是浮于表面，所以希望通过这篇文章能先把自己讲懂，其次希望能给屏幕前的你带来一些帮助。老规矩，如果在阅读过程中遇到什么问题请及时纠正，共同进步😄
+Anchor notation（锚点标记法）在 Autolayout(I) 中我们使用的的是 NS......
+        </div>
     </a>
     <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-05-17
+        Posted by Jeavil on
+        2016-06-01
     </p>
+
 </div>
 <hr>
-            
 
-            <ul class="pager">
+<div class="post-preview">
+
+    <a href="/2016/05/26/iOS9 Programming Autoayout (I)/">
+        <h2 class="post-title">
+            iOS9 Programming Autoayout (I)
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            校对：Ray_Xia 
+今天和大家来唠一唠关于 Autolayout 的那点事，若大家在阅读过程中发现错误请及时指正，共同进步哈！😄
+Autolayout
+一个 view 通常有三种 autolayout 的方式:
+
+代码中为 view 添加 autolayout 约束，那么这个 view 将会使用 autolayout 来添加 constraint
+在加载nib文件的时候，系统会检查是否......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Jeavil on
+        2016-05-26
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2016/05/23/iOS9 Programming Layout (Autoresizing)/">
+        <h2 class="post-title">
+            iOS9 Programming Layout (Autoresizing)
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            
+在日常开发中我们经常会看到，当superview的bounds发生变化的时候，他的subview也会随之移动，但这是为什么呢？在superview的size发生变化的时候，subview内部发生了什么呢？看似简单的现象中其实包含了很多知识，估计再接下来很长的时间里我将仔细梳理关于Layout方面的知识，若大家在阅读过程中发现什么问题请及时纠正，共同进步😄
+
+说起 layout 其实我们在......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Jeavil on
+        2016-05-23
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2016/05/18/iOS9 UIView (II)/">
+        <h2 class="post-title">
+            iOS9 UIView (II)
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            ##Frame
+
+UIView 的 frame 属性本质是 CGRect 类型，它是 view 相对于其 superview 中的位置，也就是说它的位置是在 superview 的坐标系中确定的。默认情况下，superview 的坐标系中原点是在左上角处，X 轴沿原点向右延伸，Y 轴沿原点向下延伸。
+
+
+
+如果你在.xib 文件中或者在 storyborad 中改变或重置 view 的 fr......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Jeavil on
+        2016-05-18
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2016/05/18/iOS9 UIWindow/">
+        <h2 class="post-title">
+            iOS9 UIWindow
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            iOS9 － UIWindow
+近期在工作中遇到了很多问题，总结起来还是因为自己的技术不过关，作为一个上进的程序媛，实在受不了自己的落后。我的偶像建议我好好看看《iOS9 programming》这本书，花三个月的时间把这本书完全吃透读通我的技术将会有值得飞跃。虽然去年就晓得并入手了该书，但由于自己的懒惰一直没有好好看。幸好最近受了点打击，打算从第一章开始好好研读一下，并且对每个章节都挑出重......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Jeavil on
+        2016-05-18
+    </p>
+
+</div>
+<hr>
+
+
+
+<!-- Pager -->
+
+<ul class="pager">
     
-        <li class="previous"><a href="/">&larr;  Nächste Seite</a></li>
+        <li class="previous">
+            <a href="/">&larr; Newer Posts</a>
+        </li>
     
+    
+        <li class="next">
+            <a href="/page/3/">Older Posts &rarr;</a>
+        </li>
     
 </ul>
-        </div>
+
+
+
+                <!-- 如果开启评论功能 -->
+                
+
+            </div>
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-3 col-lg-offset-0
+                col-md-3 col-md-offset-0
+                col-sm-12
+                col-xs-12
+                sidebar-container
+            ">
+                <!-- Featured Tags -->
+                
+
+                <!-- Short About -->
+                <section class="visible-md visible-lg">
+                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
+                    <div class="short-about">
+
+                        
+
+                        
+
+                        <!-- SNS Link -->
+                        <ul class="list-inline">
+                            
+                            
+                            
+
+                            
+
+                            
+
+                            
+                            
+                            
+                            
+                        </ul>
+                    </div>
+                </section>
+                
+                <!-- Friends Blog -->
+                
+            </div>
+        
     </div>
 </div>
 
 
-
     <!-- Footer -->
-    <hr />
-
-<!-- Footer -->
+    <!-- Footer -->
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">
-                    
+                
+                
+                
 
-                    
+                
 
-                    
-                        <li>
-                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    
+                
 
-                    
+                
 
-                    
+                
 
-                    
                 </ul>
-                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
-                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+                <p class="copyright text-muted">
+                    Copyright &copy; Jeavil&#39;s Blog 2016 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
             </div>
         </div>
     </div>
 </footer>
 
-
-    <!-- After footer scripts -->
-    
 <!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
-<!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
 
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Disqus Comments -->
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
 
 
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
 

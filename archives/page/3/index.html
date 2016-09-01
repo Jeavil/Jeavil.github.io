@@ -13,11 +13,11 @@
 
     <title>
         
-          iOS9 UIWindow - undefined
+          undefined
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/2016/05/18/iOS9 UIWindow/">
+    <link rel="canonical" href="http://yoursite.com/archives/page/3/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -123,120 +123,7 @@
 
 
     <!-- Main Content -->
-    
-<!-- Image to hack wechat -->
-<!-- <img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0"> -->
-<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
-
-<!-- Post Header -->
-<style type="text/css">
-    header.intro-header{
-        background-image: url('/undefined')
-    }
-</style>
-<header class="intro-header" >
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <div class="tags">
-                        
-                    </div>
-                    <h1>iOS9 UIWindow</h1>
-                    <h2 class="subheading"></h2>
-                    <span class="meta">
-                        Posted by Jeavil on
-                        2016-05-18
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-    <!-- Post Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
-
-                <h1 id="iOS9-－-UIWindow"><a href="#iOS9-－-UIWindow" class="headerlink" title="iOS9 － UIWindow"></a>iOS9 － UIWindow</h1><blockquote>
-<p>近期在工作中遇到了很多问题，总结起来还是因为自己的技术不过关，作为一个上进的程序媛，实在受不了自己的落后。我的偶像建议我好好看看《iOS9 programming》这本书，花三个月的时间把这本书完全吃透读通我的技术将会有值得飞跃。虽然去年就晓得并入手了该书，但由于自己的懒惰一直没有好好看。幸好最近受了点打击，打算从第一章开始好好研读一下，并且对每个章节都挑出重点总结笔记，也算是对自己的一个监督。如果大家看到有错误的地方欢迎指正，共同进步😄      </p>
-</blockquote>
-<h2 id="Views"><a href="#Views" class="headerlink" title="Views"></a>Views</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><blockquote>
-<p>window 是视图层级中的做高层级,app中只能有一个唯一并且确定的View，它会在加载的时候创建并且不会被销毁或替代，它是最终的superview，你看到的其他可见视图都是它的子类，存在在不同的层级深度中</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>app中的window必须要填充满整个设备屏幕。如果你使用的是storyboard，系统将会通过UIApplicationMain方法在app加载的时候为你设置好window的frame，如果你是手写代码，则必须要手动创建window并为其设置window的frame <code>let w = UIWindow(frame:UIScreen.mainScreen().bounds)</code><br>在iOS9中UIWindow没有frame，屏幕的bounds将会被设置为window的frame<br><code>let w = UIWindow()</code> </p>
-</blockquote>
-<hr>
-<blockquote>
-<p>在app运行过程中，可以通过以下几种方法获取widow的引用：</p>
-<ul>
-<li>如果一个View是可见的，它会通过自己的window属性来自动的引用window，你也可以使用UIView的window属性来询问它是否最终要嵌入在window中，如果不是的话，则window属性则会置为nil，一个View的window属性为nil，将对用户不可见    </li>
-<li>app的delegate中通过window属性存在一个对widow的引用，你可以在任何地方通过获取sharApplication的delegate属性来得到windows的引用。  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> let w = UIApplication.shareApplication().delegate!.window!!  </div><div class="line"> ```  </div><div class="line">- 通过shareApplication的dkeyWindow属性，我们也可以获得window的引用</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<p> let w = UIApplication.shareApplication().keyWindow!<br> ```<br> 这种引用方法不实很确定，因为系统可以创建临时的window并且将它们插入到application的keywindow中去。</p>
-
-
-                <hr>
-
-                
-
-                <ul class="pager">
-                    
-                        <li class="previous">
-                            <a href="/2016/05/18/iOS9 UIView (II)/" data-toggle="tooltip" data-placement="top" title="iOS9 UIView (II)">&larr; Previous Post</a>
-                        </li>
-                    
-                    
-                        <li class="next">
-                            <a href="/2016/05/17/iOS9 UIView (I)/" data-toggle="tooltip" data-placement="top" title="iOS9 UIView(I)">Next Post &rarr;</a>
-                        </li>
-                    
-                </ul>
-
-                
-
-                
-
-            </div>
-    <!-- Side Catalog Container -->
-        
-
-    <!-- Sidebar Container -->
-
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                
-
-                <!-- Friends Blog -->
-                
-            </div>
-
-        </div>
-    </div>
-</article>
-
-
-
-
-
-
-
-
+    <!-- Default Archive layout, we use archives instead. -->
 
     <!-- Footer -->
     <!-- Footer -->
