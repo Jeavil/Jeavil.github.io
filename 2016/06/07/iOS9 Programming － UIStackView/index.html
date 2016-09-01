@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="iOS9 Programming － UIStackView
+UIStackView 这个控件，或许你没有接触过，但它的确很好用，特别是当你需要将一些lable、image、button 等很多控件排列成一行或一列，并且每个空间还要保持一定的间距时，stackview 将会为你提供便利。那今天我们就">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Jeavil">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Jeavil&#39;s Blog"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Jeavil&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="website" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Jeavil&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Untitled</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2016-06-07
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="iOS9-Programming-－-UIStackView"><a href="#iOS9-Programming-－-UIStackView" class="headerlink" title="iOS9 Programming － UIStackView"></a>iOS9 Programming － UIStackView</h1><blockquote>
+<p>UIStackView 这个控件，或许你没有接触过，但它的确很好用，特别是当你需要将一些lable、image、button 等很多控件排列成一行或一列，并且每个空间还要保持一定的间距时，stackview 将会为你提供便利。那今天我们就一起来聊聊 UIStackView。在阅读过程中发现什么问题请及时指正，共同进步😄</p>
+</blockquote>
+<p>UIStackView 是 iOS9 中的新特性，它的主要工作就是约束他的局部或全部的 subviews ，也就是按一定顺序排列它的 subviews。stack view 解决的最重要的问题是是当 subviews 要在竖直方向上平铺一列或者在水平方向平铺一行时候。当然你也可以用很复杂的 autolayout 来达到这个效果但是 stack view 绝对是简捷的途径。假如要实现下图的排列顺序你会怎么做呢？</p>
+<p><img src="/Users/apple/Desktop/iOS 9 笔记/image/UIStackView 01.png" alt="image"></p>
+<p>UIStackView 的用法是非常简单的并且很强大。通常你只需要提供subviews 然后调用初始化方法 <code>init(arrangedSubviews:)</code>， 其中 arrangedSubviews 是只读属性。你可以采用下面方法来管理并排列subviews：</p>
+<ul>
+<li>addArrangedSubview:        //添加subview</li>
+<li>insertArrangedSubview:atIndex:     //插入subview</li>
+<li>removeArrangedSubview:      //移除Subview</li>
+</ul>
+<p>arrangedSubviews 和 stack view 的 subviews 属性是不同的，但是它属于 subviews 的一个子集。换句话说，stack view 可以有没被整理的 subview（这些 subview 需要你自己去添加约束），但是任何被整理了的 subview 必须在 stack view 的 subviews 中，如果你将一个view 设置为 arranged subview 并且它还不是 stack view 的subview，那这个 view 将会被自动添加到为一个 subview 。arrangedSubviews 的顺序和 subviews 的顺序是相互独立的；你知道 subviews 的顺序决定了他们的绘制的顺序，但是 arrangedSubviews 的顺序决定了 stack view 将怎样放置这些 subview 。</p>
+<p>Stack 视图管理着所有在它的 arrangedSubviews 属性中的视图的布局。这些视图根据它们在 arrangedSubviews 数组中的顺序沿着 Stack 视图的轴向排列。精确的布局变量根据 Stack 视图的 axis, distribution, alignment, spacing, 和其它属性共同决定。</p>
+<p><img src="/Users/apple/Desktop/iOS 9 笔记/image/StackView属性示意图.png" alt="image"></p>
+<h3 id="axis"><a href="#axis" class="headerlink" title="axis"></a>axis</h3><p>你可以选择以下两种轴向：</p>
+<ul>
+<li>.Horizontal</li>
+<li>.Vertical</li>
+</ul>
+<h3 id="distribute"><a href="#distribute" class="headerlink" title="distribute"></a>distribute</h3><p>在已选好的轴向基础上，你要怎样布局 subviews呢？你可以选择：</p>
+<ul>
+<li>.Fill</li>
+<li>.FillEqual</li>
+<li>.FillProportionally</li>
+<li>.EqualSpacing</li>
+<li>.EqualCentering</li>
+</ul>
+<blockquote>
+<p>除了 <code>UIStackViewDistributionFillEqually</code> 分布以外的分布方式 stack 视图使用被管理视图的 intrinsicContentSize 属性来计算沿着 stack 轴向的视图尺寸。UIStackViewDistributionFillEqually 分布将调节所有被管理视图的在 stack 轴向上拥有相同尺寸，以填充 stack 视图。如果可能，stack 视图将拉伸所有被管理视图，来匹配其在 stack 轴向上最长的原有尺寸（保证长宽比的情况下根据 stack 轴向长度拉伸视图）。stack view 的 <code>space</code> 属性决定了两个 view 之间的间距。</p>
+</blockquote>
+<h3 id="alignment"><a href="#alignment" class="headerlink" title="alignment"></a>alignment</h3><p>管理的视图在垂直于轴向上的布局</p>
+<ul>
+<li>Fill</li>
+<li>Leading</li>
+<li>Center</li>
+<li>Trailing</li>
+<li>FirstBaseline / LastBaseLine</li>
+</ul>
+<blockquote>
+<p>除了 <code>UIStackViewAlignmentFill</code> 对齐方式以外的对齐方式，stack 视图使用其管理的视图的 intrinsicContentSize 属性来计算视图垂直于 stack 轴向的尺寸。 UIStackViewAlignmentFill 重新调节了所有其管理的视图，使这些视图填充 stack 视图垂直于其轴向空间。如果可能，stack 视图将拉伸其所有管理的视图来匹配其垂直于 stack 轴向的最大固有尺寸。 </p>
+</blockquote>
+<h3 id="layoutMarginsRelativeArrangement"><a href="#layoutMarginsRelativeArrangement" class="headerlink" title="layoutMarginsRelativeArrangement"></a>layoutMarginsRelativeArrangement</h3><p>如果设置该属性的值为 <code>true</code>，stack view 的内部 layoutmargins 参与其 subviews 的约束设置，stack view 将使用相关边距与其内容对齐。如果 <code>false</code>（默认），则使用 stack view 的边界。</p>
+<p>说了那么多，云里雾里的，还是上代码好了，下面我们用stackview来实现上一小节的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">let sv = UIStackView(arrangedSubviews:views)</div><div class="line">       sv.axis = .Vertical</div><div class="line">       sv.alignment = .Fill</div><div class="line">       sv.distribution = .EqualSpacing</div><div class="line">       sv.translatesAutoresizingMaskIntoConstraints = false</div><div class="line">       </div><div class="line">       self.view.addSubview(sv)</div><div class="line">       </div><div class="line">       NSLayoutConstraint.activateConstraints([</div><div class="line">           sv.topAnchor.constraintEqualToAnchor(self.topLayoutGuide.bottomAnchor),</div><div class="line">           sv.leadingAnchor.constraintEqualToAnchor(self.view.leadingAnchor),</div><div class="line">           sv.trailingAnchor.constraintEqualToAnchor(self.view.trailingAnchor),</div><div class="line">           sv.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor),</div><div class="line">           ])</div></pre></td></tr></table></figure>
+<p>最后，附赠一条链接，作者将官方文档翻译成中文，讲得很清楚，建议大家可以去看一下 <a href="http://www.cnblogs.com/tieria/p/4572882.html" target="_blank" rel="external">http://www.cnblogs.com/tieria/p/4572882.html</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
