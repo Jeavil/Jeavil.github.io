@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="iOS9 － UIView##子视图 &amp;amp; 父视图
+
+今天主要研究了一下关于UIView章节的内容，发现以前对UIView的理解太过肤浅，里面的很多细节和原理都没有仔细研究过。可以说通过今天的研读真的是受益匪浅，书中所讲的一些内容我可能还不知道要什么时候用，但感觉非常有用不明觉厉的感觉。好了，">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Jeavil">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Jeavil&#39;s Blog"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Jeavil&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="website" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Jeavil&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Untitled</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2016-05-17
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="iOS9-－-UIView"><a href="#iOS9-－-UIView" class="headerlink" title="iOS9 － UIView"></a>iOS9 － UIView</h1><p>##子视图 &amp; 父视图</p>
+<blockquote>
+<p>今天主要研究了一下关于UIView章节的内容，发现以前对UIView的理解太过肤浅，里面的很多细节和原理都没有仔细研究过。可以说通过今天的研读真的是受益匪浅，书中所讲的一些内容我可能还不知道要什么时候用，但感觉非常有用不明觉厉的感觉。好了，接下来我们一起来探索UIView里面的奥秘  </p>
+<p>很久之前，每个View都拥有一块属于自己的矩形区域，并且超出view涵盖部分的subview是不可见的。可能这个历史我们都不晓得因为是很久以前的事了，现在我门在使用UIView的时候，即使子view超出了父view的矩形区域，子view还是可以显示,如图：</p>
+</blockquote>
+<p><img src="/Users/apple/Desktop/iOS 9 笔记/image/subviews.png" alt="image"></p>
+<blockquote>
+<p>view与view之间存在层级关系，它们之间的层级关系也暗示着view被绘制的顺序。关于view的hierarcy需要自己去意会。  </p>
+<p>下面是是view层级的一些特性:</p>
+<ul>
+<li>如果一个view从superview上面移除或者加载到superview上面，则这个view的subviews也会移除或被加载到superview上</li>
+<li>view的subviews的透明度继承自view</li>
+<li>一个view可以选择性的限制是否绘制超出view本身区域的subviews，通过view的clipsToBounds属性</li>
+<li>superview拥有他的subviews，因此在内存中，很像一个数组管理他的元素。superview持有这些subviews并且负责释放它们，比如当subview不再是父视图的subview的时候（当subview从superview中移除），需要注意的是 <strong><em>当你把subview从superview上移除的时候，subview将会被释放，如果你在后面还要使用该subview则你需要先retain一遍subview才可以</em></strong></li>
+<li>当view的size改变时，它的子视图会自动的重置size</li>
+</ul>
+<p>一个UIView包含它的父视图和子视图所有的属性，因此你可以在代码中通过<code>isDescendantOfView:</code>方法来检查一个view是否在某个深度是另一个view的子视图。</p>
+<p>如果你需要引用一个特定的view可以通过<code>viewWithTag：message</code>来查找。这需要你事先先给view添加在它的层级范围内唯一的标示</p>
+<p>为一个UIView添加subview需要调用<code>addSubviews</code>，在你调用该方法时，新添加的subview会置于superview的subviews中，并且最后一个被绘制，这也意味着回显示在屏幕最上层，其实原理就是压栈。view会为它的subviews添加索引，索引从0开始。这里还有一些关于添加subview的其他方法</p>
+<ul>
+<li><code>insertSubview:atIndex</code>  </li>
+<li><code>insertSubview:belowSubview:, insertSubview:aboveSubview:</code></li>
+<li><code>exchangeSubviewAtIndex:withSubviewAtIndex:</code></li>
+<li><code>bringSubviewToFront:, sendSubviewToBack:</code></li>
+</ul>
+<p>view的subviews数组是对subviews里面列表的一个不可变拷贝。我对这就话的理解是，view中的subviews数组是一个可变数组，但是view的subviews属性是对哪个可变数组的拷贝，并且是不可变拷贝。这样在你将subview从superview中移除的时候，只能一个个的遍历删除。不可以一次性的将所有的subviews删除<br><code>myView.subviews.forEach {$0.removeFromSuperview()}</code></p>
+</blockquote>
+<h2 id="可见度和不透明度"><a href="#可见度和不透明度" class="headerlink" title="可见度和不透明度"></a>可见度和不透明度</h2><blockquote>
+<p>一个View是否可见通过设置它的<code>hidden</code>属性，为true则隐藏视图不可见，为false则用户可见。值得一提的是，当view的完全透明的时候，则它相当于被hidden掉，的他用户交互也会被禁用</p>
+<p>alpha： 通过alpha属性可以设置视图部分或完全透明。1.0代表不透明，0.0代表透明。当你给父视图设置<code>alpha ＝ 0.5</code> 则它的子视图的不透明度绝不会超过0.5。比如说你给一个view的alpha设置为1.0但是它的背景却是透明的，那是因为view的backgroundcolor的alpha值一定小于1.0</p>
+<p>opaque：UIView中存在一个opaque（不透明）属性，它是一个布尔类型。我对于这个属性的理解还不透彻，总结起来好像是说如果view的alpha值 &lt; 1 ,opaque应该设置为NO，如果alpha ＝ 1，opaque应该为YES，opaque的默认值是YES。其用途主要是提升绘制的性能。</p>
+</blockquote>
+<p>今天就看了这么多内容，精彩内容命题那继续，fighting！！！</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

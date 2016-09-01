@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="iOS9 - UIView (II)##Frame
+
+UIView 的 frame 属性本质是 CGRect 类型，它是 view 相对于其 superview 中的位置，也就是说它的位置是在 superview 的坐标系中确定的。默认情况下，superview 的坐标系中原点是在左上角处，X 轴沿">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Jeavil">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Jeavil&#39;s Blog"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Jeavil&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="website" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Jeavil&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Untitled</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2016-05-18
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="iOS9-UIView-II"><a href="#iOS9-UIView-II" class="headerlink" title="iOS9 - UIView (II)"></a>iOS9 - UIView (II)</h1><p>##Frame</p>
+<blockquote>
+<p>UIView 的 frame 属性本质是 CGRect 类型，它是 view 相对于其 superview 中的位置，也就是说它的位置是在 superview 的坐标系中确定的。默认情况下，superview 的坐标系中原点是在左上角处，X 轴沿原点向右延伸，Y 轴沿原点向下延伸。</p>
+</blockquote>
+<p><img src="/Users/apple/Desktop/iOS 9 笔记/image/坐标轴.png" alt="image"></p>
+<blockquote>
+<p>如果你在.xib 文件中或者在 storyborad 中改变或重置 view 的 frame，将会很直观地看到。如果你是通过代码创建的 view，当你把这个 view 给 superview 的时候，这个 view 的位置将会置于它的 superview 的涵盖范围内。UIView 有指定的初始化方法<code>init(frame: CGRect)</code> 你需要通过这个方法来给 view 设置frame ，否则 frame 的默认值将会是 CGRectZero 。<br>需要注意的是，如果你创建了一个 view 却没有将它添加给 superview ，那这个view将不会显示出来，虽然这个道理很简单，但我还是会在不经意之间犯这种低级错误，然后找半天原因。<br>有些 view 会有一个 standard size 比如 UIBUtton 他有一个 title ，button 的大小与其 title 有关，这时你可以通过<code>sizeToFit</code> 方法来自适应 button 的大小</p>
+</blockquote>
+<h2 id="Bounds-amp-Center"><a href="#Bounds-amp-Center" class="headerlink" title="Bounds &amp; Center"></a>Bounds &amp; Center</h2><h3 id="Bounds"><a href="#Bounds" class="headerlink" title="Bounds"></a>Bounds</h3><blockquote>
+<p>UIView 还有一个 bounds 属性，该属性也是CGRect类型，它所描述的是 view 相对于自己坐标系中的位置。<br>比如你想让一个绿色的 view 在一个红色的 view 里面，并且绿色 view 距红色 view 的上下左右均为 10 个 points 。这时你可能会使用 <code>insstBy</code> 方法：</p>
+<figure class="highlight plain"><figcaption><span>v1 = UIView(frame:CGRectMake(113, 111, 132, 194)) </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">v1.backgroundColor = UIColor(red: 1, green: 0.4, blue: 1, alpha: 1) </div><div class="line">let v2 = UIView(frame:v1.bounds.insetBy(dx: 10, dy: 10))</div><div class="line">v2.backgroundColor = UIColor(red: 0.5, green: 1, blue: 0, alpha: 1) </div><div class="line">self.view.addSubview(v1)v1.addSubview(v2)</div></pre></td></tr></table></figure>
+</blockquote>
+<p><img src="/Users/apple/Desktop/iOS 9 笔记/image/bounds.png" alt="image"></p>
+<blockquote>
+<p>这种用法是很常见的，当你将一个view置于另一个view中时，你需要使用view的bounds而不是frame，因为这个view需要相对于自己的坐标系来确定位置，如果你使用frame则会出现下图的效果<br><img src="/Users/apple/Desktop/iOS 9 笔记/image/frame2.png" alt="image"></p>
+<p>如果你改变了一个view的boundsname它的frame也会跟着改变，frame变化但它的中心点时不会改变的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">v2.bounds.size.height += 20</div><div class="line">v2.bounds.size.width += 20</div></pre></td></tr></table></figure>
+<p>给绿色的视图长宽分别加20，则它的大小将会和红色的一样大，完完全全的覆盖在红色视图上面，呈现给用户的就是一个绿色的视图。但绿色视图的 center 的确时没有任何变化<br>当你创建一个 view 的时候，它的 bounds 的坐标系原点是（0，0，0，0）在自己的左上角位置。当你改变 bounds 的 <code>origin</code>时，你将会移动它内部的坐标系。因为 subview 在布局的时候会关心 superview 的坐标系，因此如果你改变了superview 的`bounds.origin｀则将会改边它的subview的位置，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">v1.bounds.origin.x += 10v1.bounds.origin.y += 10</div></pre></td></tr></table></figure>
+</blockquote>
+<p><img src="/Users/apple/Desktop/iOS 9 笔记/image/改变后.png" alt="image"></p>
+<blockquote>
+<p>可以发现你改变了 bounds 的 origin ，不会对 superview 的大小和位置有任何，而 subview 会移动到 superview 的左上角。<br>当我改变了 superview 的origin值，superview 的 orign 会向 X 轴正向移动，而 subview 会向 X 轴负向移动，这样 view 的bound.origin 会在它的frame的左上角。</p>
+</blockquote>
+<p>###Center</p>
+<blockquote>
+<p>center 其实就是一个 CGPoint 类型的点，它用来描述子视图和父视图之间的位置关系。<br>所以当你改变 view 的 bounds 是不会改变它的 center ，反之亦然，当你改变 center 时 bounds 也是不会改变的。所以view 的 bounds 和 center 之间是没有交集的。<br>事实上，frame 这个属性只是方便的描述了 center 和 bounds 的值，你可以在任何地方使用这个属性。当你第一次创建一个 view 的时候，你需要使用指定的初始化方法 <code>init(frame:)</code> ，你可以改变frame的值，那bounds 和 center 将会随之改变，你改变bounds 或 center 的值，那 frame 也会随之改变。但是，最好还是使用 bounds 和 center 来给 view 设置 它在 父视图中 大小和位置， 而不是使用 frame。<br>每一个 view 都有一个自己的坐标系来表示自己的bounds， 并且每一个坐标系和他的父视图的坐标系通过 center 可以清晰的表示出来。之前的文章有说过所有的 view 都通过一个 window 来容纳，因此可以交换一个 window 中任意两个 view  的坐标系。 通过以下方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">convertPoint:fromView:, convertPoint:toView:</div><div class="line">convertRect:fromView:, convertRect:toView:</div></pre></td></tr></table></figure>
+<p><em>如果 toView 的参数为 nil ，则会用window替换</em></p>
+</blockquote>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
