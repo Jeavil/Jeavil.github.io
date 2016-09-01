@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="siOS9 Programming UIStackView"/>
+        <meta property="og:title" content="iOS9 Programming UIStackView"/>
     
 
     <!--Open Graph Description-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>siOS9 Programming UIStackView - Jeavil&#39;s Blog</title>
+    <title>iOS9 Programming UIStackView - Jeavil&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -135,7 +135,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>siOS9 Programming UIStackView</h1>
+                    <h1>iOS9 Programming UIStackView</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -165,7 +165,7 @@
 <p>UIStackView 这个控件，或许你没有接触过，但它的确很好用，特别是当你需要将一些lable、image、button 等很多控件排列成一行或一列，并且每个空间还要保持一定的间距时，stackview 将会为你提供便利。那今天我们就一起来聊聊 UIStackView。在阅读过程中发现什么问题请及时指正，共同进步😄</p>
 </blockquote>
 <p>UIStackView 是 iOS9 中的新特性，它的主要工作就是约束他的局部或全部的 subviews ，也就是按一定顺序排列它的 subviews。stack view 解决的最重要的问题是是当 subviews 要在竖直方向上平铺一列或者在水平方向平铺一行时候。当然你也可以用很复杂的 autolayout 来达到这个效果但是 stack view 绝对是简捷的途径。假如要实现下图的排列顺序你会怎么做呢？</p>
-<p><img src="/Users/apple/Desktop/iOS 9 笔记/image/UIStackView 01.png" alt="image"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1614000-40c54f0f5029e4f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="UIStackView 01.png"></p>
 <p>UIStackView 的用法是非常简单的并且很强大。通常你只需要提供subviews 然后调用初始化方法 <code>init(arrangedSubviews:)</code>， 其中 arrangedSubviews 是只读属性。你可以采用下面方法来管理并排列subviews：</p>
 <ul>
 <li>addArrangedSubview:        //添加subview</li>
@@ -174,7 +174,7 @@
 </ul>
 <p>arrangedSubviews 和 stack view 的 subviews 属性是不同的，但是它属于 subviews 的一个子集。换句话说，stack view 可以有没被整理的 subview（这些 subview 需要你自己去添加约束），但是任何被整理了的 subview 必须在 stack view 的 subviews 中，如果你将一个view 设置为 arranged subview 并且它还不是 stack view 的subview，那这个 view 将会被自动添加到为一个 subview 。arrangedSubviews 的顺序和 subviews 的顺序是相互独立的；你知道 subviews 的顺序决定了他们的绘制的顺序，但是 arrangedSubviews 的顺序决定了 stack view 将怎样放置这些 subview 。</p>
 <p>Stack 视图管理着所有在它的 arrangedSubviews 属性中的视图的布局。这些视图根据它们在 arrangedSubviews 数组中的顺序沿着 Stack 视图的轴向排列。精确的布局变量根据 Stack 视图的 axis, distribution, alignment, spacing, 和其它属性共同决定。</p>
-<p><img src="/Users/apple/Desktop/iOS 9 笔记/image/StackView属性示意图.png" alt="image"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1614000-e1fef15dda1315b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="StackView属性示意图.png"></p>
 <h3 id="axis"><a href="#axis" class="headerlink" title="axis"></a>axis</h3><p>你可以选择以下两种轴向：</p>
 <ul>
 <li>.Horizontal</li>
@@ -205,6 +205,7 @@
 <h3 id="layoutMarginsRelativeArrangement"><a href="#layoutMarginsRelativeArrangement" class="headerlink" title="layoutMarginsRelativeArrangement"></a>layoutMarginsRelativeArrangement</h3><p>如果设置该属性的值为 <code>true</code>，stack view 的内部 layoutmargins 参与其 subviews 的约束设置，stack view 将使用相关边距与其内容对齐。如果 <code>false</code>（默认），则使用 stack view 的边界。</p>
 <p>说了那么多，云里雾里的，还是上代码好了，下面我们用stackview来实现上一小节的内容</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">let sv = UIStackView(arrangedSubviews:views)</div><div class="line">       sv.axis = .Vertical</div><div class="line">       sv.alignment = .Fill</div><div class="line">       sv.distribution = .EqualSpacing</div><div class="line">       sv.translatesAutoresizingMaskIntoConstraints = false</div><div class="line">       </div><div class="line">       self.view.addSubview(sv)</div><div class="line">       </div><div class="line">       NSLayoutConstraint.activateConstraints([</div><div class="line">           sv.topAnchor.constraintEqualToAnchor(self.topLayoutGuide.bottomAnchor),</div><div class="line">           sv.leadingAnchor.constraintEqualToAnchor(self.view.leadingAnchor),</div><div class="line">           sv.trailingAnchor.constraintEqualToAnchor(self.view.trailingAnchor),</div><div class="line">           sv.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor),</div><div class="line">           ])</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1614000-9662a641b95461b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="v2移除之前.png"></p>
 <p>最后，附赠一条链接，作者将官方文档翻译成中文，讲得很清楚，建议大家可以去看一下 <a href="http://www.cnblogs.com/tieria/p/4572882.html" target="_blank" rel="external">http://www.cnblogs.com/tieria/p/4572882.html</a></p>
 
 
