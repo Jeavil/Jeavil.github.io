@@ -161,36 +161,42 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h1 id="iOS9-UIView-II"><a href="#iOS9-UIView-II" class="headerlink" title="iOS9 - UIView (II)"></a>iOS9 - UIView (II)</h1><p>##Frame</p>
+                <p>##Frame</p>
 <blockquote>
 <p>UIView 的 frame 属性本质是 CGRect 类型，它是 view 相对于其 superview 中的位置，也就是说它的位置是在 superview 的坐标系中确定的。默认情况下，superview 的坐标系中原点是在左上角处，X 轴沿原点向右延伸，Y 轴沿原点向下延伸。</p>
 </blockquote>
-<p><img src="/Users/apple/Desktop/iOS 9 笔记/image/坐标轴.png" alt="image"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1614000-3debb680968a1b96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="坐标轴.png"></p>
 <blockquote>
 <p>如果你在.xib 文件中或者在 storyborad 中改变或重置 view 的 frame，将会很直观地看到。如果你是通过代码创建的 view，当你把这个 view 给 superview 的时候，这个 view 的位置将会置于它的 superview 的涵盖范围内。UIView 有指定的初始化方法<code>init(frame: CGRect)</code> 你需要通过这个方法来给 view 设置frame ，否则 frame 的默认值将会是 CGRectZero 。<br>需要注意的是，如果你创建了一个 view 却没有将它添加给 superview ，那这个view将不会显示出来，虽然这个道理很简单，但我还是会在不经意之间犯这种低级错误，然后找半天原因。<br>有些 view 会有一个 standard size 比如 UIBUtton 他有一个 title ，button 的大小与其 title 有关，这时你可以通过<code>sizeToFit</code> 方法来自适应 button 的大小</p>
 </blockquote>
 <h2 id="Bounds-amp-Center"><a href="#Bounds-amp-Center" class="headerlink" title="Bounds &amp; Center"></a>Bounds &amp; Center</h2><h3 id="Bounds"><a href="#Bounds" class="headerlink" title="Bounds"></a>Bounds</h3><blockquote>
-<p>UIView 还有一个 bounds 属性，该属性也是CGRect类型，它所描述的是 view 相对于自己坐标系中的位置。<br>比如你想让一个绿色的 view 在一个红色的 view 里面，并且绿色 view 距红色 view 的上下左右均为 10 个 points 。这时你可能会使用 <code>insstBy</code> 方法：</p>
+<p>UIView 还有一个 bounds 属性，该属性也是CGRect类型，它所描述的是 view 相对于自己坐标系中的位置。<br>比如你想让一个绿色的 view 在一个红色的 view 里面，并且绿色 view 距红色 view 的上下左右均为 10 个 points 。这时你可能会使用 <code>insetBy</code> 方法：</p>
 <figure class="highlight plain"><figcaption><span>v1 = UIView(frame:CGRectMake(113, 111, 132, 194)) </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">v1.backgroundColor = UIColor(red: 1, green: 0.4, blue: 1, alpha: 1) </div><div class="line">let v2 = UIView(frame:v1.bounds.insetBy(dx: 10, dy: 10))</div><div class="line">v2.backgroundColor = UIColor(red: 0.5, green: 1, blue: 0, alpha: 1) </div><div class="line">self.view.addSubview(v1)</div><div class="line">v1.addSubview(v2)</div></pre></td></tr></table></figure>
 </blockquote>
-<p><img src="/Users/apple/Desktop/iOS 9 笔记/image/bounds.png" alt="image"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1614000-8f8f524aaa82b25d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="bounds.png"></p>
 <blockquote>
-<p>这种用法是很常见的，当你将一个view置于另一个view中时，你需要使用view的bounds而不是frame，因为这个view需要相对于自己的坐标系来确定位置，如果你使用frame则会出现下图的效果<br><img src="/Users/apple/Desktop/iOS 9 笔记/image/frame2.png" alt="image"></p>
-<p>如果你改变了一个view的boundsname它的frame也会跟着改变，frame变化但它的中心点时不会改变的</p>
+<p>这种用法是很常见的，当你将一个view置于另一个view中时，你需要使用view的bounds而不是frame，因为这个view需要相对于自己的坐标系来确定位置，如果你使用frame则会出现下图的效果</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1614000-c973663bd6fd690f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="frame"></p>
+<blockquote>
+<p>如果你改变了一个view的bounds它的frame也会跟着改变，但frame变化它的中心点是不会改变的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">v2.bounds.size.height += 20</div><div class="line">v2.bounds.size.width += 20</div></pre></td></tr></table></figure>
 <p>给绿色的视图长宽分别加20，则它的大小将会和红色的一样大，完完全全的覆盖在红色视图上面，呈现给用户的就是一个绿色的视图。但绿色视图的 center 的确时没有任何变化<br>当你创建一个 view 的时候，它的 bounds 的坐标系原点是（0，0，0，0）在自己的左上角位置。当你改变 bounds 的 <code>origin</code>时，你将会移动它内部的坐标系。因为 subview 在布局的时候会关心 superview 的坐标系，因此如果你改变了superview 的`bounds.origin｀则将会改边它的subview的位置，比如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">v1.bounds.origin.x += 10</div><div class="line">v1.bounds.origin.y += 10</div></pre></td></tr></table></figure>
 </blockquote>
-<p><img src="/Users/apple/Desktop/iOS 9 笔记/image/改变后.png" alt="image"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1614000-fc9e6a9af9c093f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="改变后.png"></p>
 <blockquote>
-<p>可以发现你改变了 bounds 的 origin ，不会对 superview 的大小和位置有任何，而 subview 会移动到 superview 的左上角。<br>当我改变了 superview 的origin值，superview 的 orign 会向 X 轴正向移动，而 subview 会向 X 轴负向移动，这样 view 的bound.origin 会在它的frame的左上角。</p>
+<p>可以发现你改变了 bounds 的 origin ，不会改变 superview 的大小和位置，而 subview 会移动到 superview 的左上角。这是因为把 superview 以前的原点（0，0）替换成了现在的（10，10），而 subview 的 frame 并咩有发生变化，因此就会像图上显示的那样，红色 view 和 绿色 view 的左上角重合，大家可以参照下面的图理解一下👇</p>
 </blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1614000-bdae6bd12531f2b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="origin 改变前"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1614000-ea401f7b4b798b3c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="origin 改变后"></p>
 <p>###Center</p>
 <blockquote>
-<p>center 其实就是一个 CGPoint 类型的点，它用来描述子视图和父视图之间的位置关系。<br>所以当你改变 view 的 bounds 是不会改变它的 center ，反之亦然，当你改变 center 时 bounds 也是不会改变的。所以view 的 bounds 和 center 之间是没有交集的。<br>事实上，frame 这个属性只是方便的描述了 center 和 bounds 的值，你可以在任何地方使用这个属性。当你第一次创建一个 view 的时候，你需要使用指定的初始化方法 <code>init(frame:)</code> ，你可以改变frame的值，那bounds 和 center 将会随之改变，你改变bounds 或 center 的值，那 frame 也会随之改变。但是，最好还是使用 bounds 和 center 来给 view 设置 它在 父视图中 大小和位置， 而不是使用 frame。<br>每一个 view 都有一个自己的坐标系来表示自己的bounds， 并且每一个坐标系和他的父视图的坐标系通过 center 可以清晰的表示出来。之前的文章有说过所有的 view 都通过一个 window 来容纳，因此可以交换一个 window 中任意两个 view  的坐标系。 通过以下方法：</p>
+<p>center 其实就是一个 CGPoint 类型的点，它用来描述子视图和父视图之间的位置关系。<br>所以当你改变 view 的 bounds 是不会改变它的 center ，反之亦然，当你改变 center 时 bounds 也是不会改变的。所以view 的 bounds 和 center 之间是没有交集的。<br>事实上，frame 这个属性只是方便的描述了 center 和 bounds 的值，你可以在任何地方使用这个属性。当你第一次创建一个 view 的时候，你需要使用指定的初始化方法 <code>init(frame:)</code> ，你可以改变frame的值，那bounds 和 center 将会随之改变，你改变bounds 或 center 的值，那 frame 也会随之改变。但是，最好还是使用 bounds 和 center 来给 view 设置 它在 父视图中 大小和位置， 而不是使用 frame。<br>每一个 view 都有一个自己的坐标系来表示自己的bounds， 并且每一个坐标系和他的父视图的坐标系通过 center 可以清晰的表示出来。之前的文章有说过所有的 view 都通过一个 window 来容纳，因此可以 window 中任意两个 view  的坐标系相互转换。 通过以下方法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">convertPoint:fromView:, convertPoint:toView:</div><div class="line">convertRect:fromView:, convertRect:toView:</div></pre></td></tr></table></figure>
 <p><em>如果 toView 的参数为 nil ，则会用window替换</em></p>
 </blockquote>
+<p>好了今天就到这里，明天继续，若有纰漏欢迎指正，共同进步😄</p>
 
 
                 
