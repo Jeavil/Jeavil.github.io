@@ -10,9 +10,9 @@
 
     <!--Description-->
     
-        <meta name="description" content="iOS9 - UIView (II)##Frame
+        <meta name="description" content="title:iOS9 UIView (II)iOS9 - UIView (II)##Frame
 
-UIView 的 frame 属性本质是 CGRect 类型，它是 view 相对于其 superview 中的位置，也就是说它的位置是在 superview 的坐标系中确定的。默认情况下，superview 的坐标系中原点是在左上角处，X 轴沿">
+UIView 的 frame 属性本质是 CGRect 类型，它是 view 相对于其 superview 中的位置，也就是说它的位置是在 superview 的坐标系中确定的。默认情况下，superv">
     
 
     <!--Author-->
@@ -161,7 +161,8 @@ UIView 的 frame 属性本质是 CGRect 类型，它是 view 相对于其 superv
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h1 id="iOS9-UIView-II"><a href="#iOS9-UIView-II" class="headerlink" title="iOS9 - UIView (II)"></a>iOS9 - UIView (II)</h1><p>##Frame</p>
+                <hr>
+<h2 id="title-iOS9-UIView-II"><a href="#title-iOS9-UIView-II" class="headerlink" title="title:iOS9 UIView (II)"></a>title:iOS9 UIView (II)</h2><h1 id="iOS9-UIView-II"><a href="#iOS9-UIView-II" class="headerlink" title="iOS9 - UIView (II)"></a>iOS9 - UIView (II)</h1><p>##Frame</p>
 <blockquote>
 <p>UIView 的 frame 属性本质是 CGRect 类型，它是 view 相对于其 superview 中的位置，也就是说它的位置是在 superview 的坐标系中确定的。默认情况下，superview 的坐标系中原点是在左上角处，X 轴沿原点向右延伸，Y 轴沿原点向下延伸。</p>
 </blockquote>
@@ -171,7 +172,7 @@ UIView 的 frame 属性本质是 CGRect 类型，它是 view 相对于其 superv
 </blockquote>
 <h2 id="Bounds-amp-Center"><a href="#Bounds-amp-Center" class="headerlink" title="Bounds &amp; Center"></a>Bounds &amp; Center</h2><h3 id="Bounds"><a href="#Bounds" class="headerlink" title="Bounds"></a>Bounds</h3><blockquote>
 <p>UIView 还有一个 bounds 属性，该属性也是CGRect类型，它所描述的是 view 相对于自己坐标系中的位置。<br>比如你想让一个绿色的 view 在一个红色的 view 里面，并且绿色 view 距红色 view 的上下左右均为 10 个 points 。这时你可能会使用 <code>insstBy</code> 方法：</p>
-<figure class="highlight plain"><figcaption><span>v1 = UIView(frame:CGRectMake(113, 111, 132, 194)) </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">v1.backgroundColor = UIColor(red: 1, green: 0.4, blue: 1, alpha: 1) </div><div class="line">let v2 = UIView(frame:v1.bounds.insetBy(dx: 10, dy: 10))</div><div class="line">v2.backgroundColor = UIColor(red: 0.5, green: 1, blue: 0, alpha: 1) </div><div class="line">self.view.addSubview(v1)v1.addSubview(v2)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>v1 = UIView(frame:CGRectMake(113, 111, 132, 194)) </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">v1.backgroundColor = UIColor(red: 1, green: 0.4, blue: 1, alpha: 1) </div><div class="line">let v2 = UIView(frame:v1.bounds.insetBy(dx: 10, dy: 10))</div><div class="line">v2.backgroundColor = UIColor(red: 0.5, green: 1, blue: 0, alpha: 1) </div><div class="line">self.view.addSubview(v1)</div><div class="line">v1.addSubview(v2)</div></pre></td></tr></table></figure>
 </blockquote>
 <p><img src="/Users/apple/Desktop/iOS 9 笔记/image/bounds.png" alt="image"></p>
 <blockquote>
@@ -179,7 +180,7 @@ UIView 的 frame 属性本质是 CGRect 类型，它是 view 相对于其 superv
 <p>如果你改变了一个view的boundsname它的frame也会跟着改变，frame变化但它的中心点时不会改变的</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">v2.bounds.size.height += 20</div><div class="line">v2.bounds.size.width += 20</div></pre></td></tr></table></figure>
 <p>给绿色的视图长宽分别加20，则它的大小将会和红色的一样大，完完全全的覆盖在红色视图上面，呈现给用户的就是一个绿色的视图。但绿色视图的 center 的确时没有任何变化<br>当你创建一个 view 的时候，它的 bounds 的坐标系原点是（0，0，0，0）在自己的左上角位置。当你改变 bounds 的 <code>origin</code>时，你将会移动它内部的坐标系。因为 subview 在布局的时候会关心 superview 的坐标系，因此如果你改变了superview 的`bounds.origin｀则将会改边它的subview的位置，比如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">v1.bounds.origin.x += 10v1.bounds.origin.y += 10</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">v1.bounds.origin.x += 10</div><div class="line">v1.bounds.origin.y += 10</div></pre></td></tr></table></figure>
 </blockquote>
 <p><img src="/Users/apple/Desktop/iOS 9 笔记/image/改变后.png" alt="image"></p>
 <blockquote>
