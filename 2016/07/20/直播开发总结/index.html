@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="Buffering...">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Jeavil">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="直播模块开发总结"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Buffering..." />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Jeavil&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>直播模块开发总结 - Jeavil&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>直播模块开发总结</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2016-07-20
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="直播模块开发总结"><a href="#直播模块开发总结" class="headerlink" title="直播模块开发总结"></a>直播模块开发总结</h1><blockquote>
+<p>这次的版本开发无疑是对我的第一个挑战，所有的新功能都需要独立开发，并且时间很紧，之前连视频播放器都很少接触，但新需求一来就是直播功能，真的还是蛮有压力的。不过完后工回想一下收获颇多，无论是技术上的，还是心理上的。吼吼，来总结一下此次开发中踩过的坑吧！</p>
+</blockquote>
+<h2 id="第一大坑：-局部界面转屏"><a href="#第一大坑：-局部界面转屏" class="headerlink" title="第一大坑： 局部界面转屏"></a>第一大坑： 局部界面转屏</h2><p>iOS开发开发中，转屏包含设备的转动方向和屏幕转动方向，如果要开启设备的转屏方向，可以在Target中勾选多支持的方向，但是我们的项目比较特殊，只有在播放视频的界面才可以转屏其他界面只能竖屏，这个需求困扰了我好久，终于最后找到了一个解决方案：</p>
+<ul>
+<li><p>首先在Target中勾选所需要支持的转屏方向</p>
+</li>
+<li><p>在 AppDelegate.h 中声明一个属性用来标示是否可以转屏</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/***  是否允许横屏的标记 */</div><div class="line">@property (nonatomic,assign)BOOL allowRotation;</div></pre></td></tr></table></figure>
+<ul>
+<li>在 AppDelegate.m 中 实现方法：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">-(UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window &#123;</div><div class="line">    if (self.allowRotation) &#123;</div><div class="line">        return UIInterfaceOrientationMaskPortrait| UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;</div><div class="line"></div><div class="line">    &#125;else &#123;</div><div class="line">        return UIInterfaceOrientationMaskPortrait;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>与之相关的还有两个方法如下，但是我这里不需要就没有实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//是否自动旋转,返回YES可以自动旋转  </div><div class="line">- (BOOL)shouldAutorotate NS_AVAILABLE_IOS(6_0) __TVOS_PROHIBITED;  </div><div class="line">//这个是返回优先方向  </div><div class="line">- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation NS_AVAILABLE_IOS(6_0) __TVOS_PROHIBITED;</div></pre></td></tr></table></figure>
+<ul>
+<li>然后在你需要转屏的那个 ViewController 里面设置转屏与否</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- (void)viewWillAppear:(BOOL)animated &#123;</div><div class="line">    [super viewWillAppear:animated];</div><div class="line">    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];</div><div class="line">    appDelegate.allowRotation = YES;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>需要注意的是如果在这个视图控制器消失或销毁后，保持其他视图控制器不支持转屏，那你需要在viewWillDisAppear的时候将AppDelegate中的属性设置为NO</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (void)viewWillDisappear:(BOOL)animated &#123;</div><div class="line">    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];</div><div class="line">    appDelegate.allowRotation = NO;</div><div class="line">    [self.playerView shutDownPlayer];</div><div class="line">    [UIApplication sharedApplication].statusBarHidden = NO;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>在需要转屏的ViewController中添加通知监测设备是否旋转，并针对不同方向设置做不同的操作</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (void)listeningRotating &#123;</div><div class="line">    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];</div><div class="line">    [[NSNotificationCenter defaultCenter]</div><div class="line">     addObserver:self</div><div class="line">     selector:@selector(onDeviceOrientationChange)</div><div class="line">     name:UIDeviceOrientationDidChangeNotification</div><div class="line">     object:nil];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">- (void)onDeviceOrientationChange &#123;</div><div class="line">    </div><div class="line">    UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;</div><div class="line">    UIInterfaceOrientation interfaceOrientation =</div><div class="line">    (UIInterfaceOrientation)orientation;</div><div class="line">    </div><div class="line">    [self.landscapeControlOverlay removeFromSuperview];</div><div class="line">    </div><div class="line">    switch (interfaceOrientation) &#123;</div><div class="line">        case UIInterfaceOrientationPortrait:</div><div class="line">            [self setOrientationPortrait];</div><div class="line">            break;</div><div class="line">            </div><div class="line">        case UIInterfaceOrientationLandscapeRight:</div><div class="line">            [self setOrientationLandscape];</div><div class="line">            </div><div class="line">        case UIInterfaceOrientationLandscapeLeft:</div><div class="line">            [self setOrientationLandscape];</div><div class="line">            </div><div class="line">        default:</div><div class="line">            break;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>强制屏幕旋转</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">- (void)interfaceOrientation:(UIInterfaceOrientation)orientation &#123;</div><div class="line">    </div><div class="line">    if ([[UIDevice currentDevice]</div><div class="line">         respondsToSelector:@selector(setOrientation:)]) &#123;</div><div class="line">        SEL selector = NSSelectorFromString(@&quot;setOrientation:&quot;);</div><div class="line">        NSInvocation *invocation = [NSInvocation</div><div class="line">                                    invocationWithMethodSignature:</div><div class="line">                                    [UIDevice instanceMethodSignatureForSelector:selector]];</div><div class="line">        [invocation setSelector:selector];</div><div class="line">        [invocation setTarget:[UIDevice currentDevice]];</div><div class="line">        </div><div class="line">        int val = orientation;</div><div class="line">        [invocation setArgument:&amp;val atIndex:2];</div><div class="line">        [invocation invoke];</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    if (orientation == UIInterfaceOrientationLandscapeRight ||</div><div class="line">        orientation == UIInterfaceOrientationLandscapeLeft) &#123;</div><div class="line">        [self setOrientationLandscape];</div><div class="line">    &#125; else if (orientation == UIInterfaceOrientationPortrait) &#123;</div><div class="line">        [self setOrientationPortrait];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="第二大坑：转屏后遗症"><a href="#第二大坑：转屏后遗症" class="headerlink" title="第二大坑：转屏后遗症"></a>第二大坑：转屏后遗症</h2><p>通过才第一个坑终于把视频播放界面转屏其他界面只能竖屏的功能实现了，接着迎接的就是其他界面无缘无故的 crash，说具体一点我们不仅只有一个观看直播的界面，还可以在其他界面的tableViewCell中点击观看，但是我将转屏通知，转屏后的界面更新，通通都封装在视频播放器这个控件中，但是其他界面tableViewCell中的播放器却又不支持转屏功能。所以，当我在设置中取消屏幕锁定后，然后在cell中播放视频时，只要一晃动手机就会崩溃在MAsonry中提示：    <code>couldn&#39;t find a common superview for &lt;UIButton: 0x14d172340; frame = (0 0; 0 0); opaque = NO; layer = &lt;CALayer: 0x1510b0690&gt;&gt; and &lt;LivePlayer: 0x14cf889a0; frame = (0 0; 0 0); layer = &lt;CALayer: 0x14f60e740&gt;&gt;</code> 这个问题可是让我足足找了两天，真的是整的我和测试妹子都要崩溃了。其原因就是在tableview所在的这个ViewController中是不支持转屏的，但是我在初始化播放器控件的时候并没有判断当前界面是否支持转屏，不分青红皂白的给人家通通设置了设备转屏通知，就是上面提到的 <code>- (void)listeningRotating</code> 方法，所以我只要一晃动手机就会出发改通知方法，给一些不存在的对象设置约束，当然要崩溃了。所以提醒大家也给自己敲个警钟，以后千万要注意了。</p>
+<h2 id="第三大坑：Cell中的播放器最好使用单例"><a href="#第三大坑：Cell中的播放器最好使用单例" class="headerlink" title="第三大坑：Cell中的播放器最好使用单例"></a>第三大坑：Cell中的播放器最好使用单例</h2><p>如果需要在TableViewCell中播放视频，建议将视频播放器写成一个单例，不然真的很麻烦，我是把所有功能都开发完了才发现如果用单例代码会更简洁。</p>
+<p>现在我的做法是当你在某个cell中播放视频，然后再点击其他cell中的视频时，将上一条关闭；如果在cell播放视频的时候切换到其他界面时，将当前cell中的播放器关闭；程序进入后台时关闭当前cell中的直播；从直播播放切换到音频播放时，关闭直播；这些情况都需要记录当前cell，然后在对cell中的播放器做操作，这样做其实也没什么问题，但是不够优雅，并且消耗资源，每次都需要记录当前的cell所在的indexpath，如果使用单里的话无论在什么地方都可以对播放器进行操作，不仅方便还提高了代码的易读性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- (void)shutDownSelectCellPlayer &#123;</div><div class="line">    if (_currentIndex != 0) &#123;</div><div class="line">        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_currentIndex-1000 inSection:0];</div><div class="line">        LivePlayerCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];</div><div class="line">        [cell stopLivePlayer];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我这是一发反面教材，以后还是要改成单例模式</p>
+<h2 id="第四大坑：-ARC下的僵尸指针问题"><a href="#第四大坑：-ARC下的僵尸指针问题" class="headerlink" title="第四大坑： ARC下的僵尸指针问题"></a>第四大坑： ARC下的僵尸指针问题</h2><p>这个坑我不知道要怎么描述，因为我封装的播放器逻辑不够严谨，因此有时会给一个已经释放了的对象做操作造成致命的崩溃</p>
+<h2 id="第五大坑：-逻辑严谨性"><a href="#第五大坑：-逻辑严谨性" class="headerlink" title="第五大坑： 逻辑严谨性"></a>第五大坑： 逻辑严谨性</h2><p>这点我不知该从何说起或者怎么说，或许还是因为自己对于有些基础掌握的不牢固，因此在开发过程中总会犯些低级错误，比如先将某对象释放了，然后又对其发送了消息，或者是在某对象可能还没创建出来的时候就以该对象为参照视图使用masonry建立约束，然后花时间去找崩溃原因，找到问题根源后恍然大吾然后自己都服了自己了。所以在写代码的时候一定要先将逻辑里清楚，这点很重要，慢慢修炼吧😂</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
