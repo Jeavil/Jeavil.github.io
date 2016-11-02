@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Jeavil&#39;s Blog"/>
+        <meta property="og:title" content="iOS开发——技巧总结(二)"/>
     
 
     <!--Open Graph Description-->
@@ -33,7 +33,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>Jeavil&#39;s Blog</title>
+    <title>iOS开发——技巧总结(二) - Jeavil&#39;s Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -135,7 +135,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Untitled</h1>
+                    <h1>iOS开发——技巧总结(二)</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -161,8 +161,7 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h1 id="iOS开发—技巧总结（二）"><a href="#iOS开发—技巧总结（二）" class="headerlink" title="iOS开发—技巧总结（二）"></a>iOS开发—技巧总结（二）</h1><hr>
-<h2 id="文本编辑控件"><a href="#文本编辑控件" class="headerlink" title="文本编辑控件"></a>文本编辑控件</h2><h3 id="UITextView"><a href="#UITextView" class="headerlink" title="UITextView"></a>UITextView</h3><p>UITextview 有一个很坑的地方，就是你点击键盘输入完成按钮是无法结束输入并收起键盘的，也就是说他不会直接走下面的代理方法：</p>
+                <h2 id="文本编辑控件"><a href="#文本编辑控件" class="headerlink" title="文本编辑控件"></a>文本编辑控件</h2><h3 id="UITextView"><a href="#UITextView" class="headerlink" title="UITextView"></a>UITextView</h3><p>UITextview 有一个很坑的地方，就是你点击键盘输入完成按钮是无法结束输入并收起键盘的，也就是说他不会直接走下面的代理方法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (void)textViewDidEndEditing:(UITextView *)textView&#123;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
 <p>无论你怎么点击完成按钮它总是会以换行的形式展现给你。<br>所以请你不要把时间浪费在怀疑自己是否为 UITextView 设置了代理或者质疑Xcode是否出了问题。要想实现点击完成按钮收起键盘，那么请换个方式，如下：</p>
 <p>在 UITextView 的 shouldChangeTextInRange 代理方法中监听是否输入了换行符 <strong><em>‘/n’</em></strong> 如果键入了换行符那就收起键盘结束输入</p>
