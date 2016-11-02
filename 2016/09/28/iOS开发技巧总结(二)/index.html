@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="Buffering...">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Jeavil">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Jeavil&#39;s Blog"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Buffering..." />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Jeavil&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="website" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Jeavil&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Jeavil/Jeavil.github.io">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Untitled</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2016-09-28
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="iOS开发—技巧总结（二）"><a href="#iOS开发—技巧总结（二）" class="headerlink" title="iOS开发—技巧总结（二）"></a>iOS开发—技巧总结（二）</h1><hr>
+<h2 id="文本编辑控件"><a href="#文本编辑控件" class="headerlink" title="文本编辑控件"></a>文本编辑控件</h2><h3 id="UITextView"><a href="#UITextView" class="headerlink" title="UITextView"></a>UITextView</h3><p>UITextview 有一个很坑的地方，就是你点击键盘输入完成按钮是无法结束输入并收起键盘的，也就是说他不会直接走下面的代理方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (void)textViewDidEndEditing:(UITextView *)textView&#123;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>无论你怎么点击完成按钮它总是会以换行的形式展现给你。<br>所以请你不要把时间浪费在怀疑自己是否为 UITextView 设置了代理或者质疑Xcode是否出了问题。要想实现点击完成按钮收起键盘，那么请换个方式，如下：</p>
+<p>在 UITextView 的 shouldChangeTextInRange 代理方法中监听是否输入了换行符 <strong><em>‘/n’</em></strong> 如果键入了换行符那就收起键盘结束输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text &#123;</div><div class="line">    if ([text isEqualToString:@&quot;\n&quot;]) &#123;</div><div class="line">        [textView resignFirstResponder];</div><div class="line">        return NO;</div><div class="line">    &#125;</div><div class="line">    return YES; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>程序执行到<code>[textView resignFirstResponder]</code> 标志着输入完成，shouldChangeTextInRange 代理方法会返回 NO ，不能再改变 textview 中的 text ，意思该textView可以结束编辑了。因此接下来才会走 <code>- (void)textViewDidEndEditing:(UITextView *)textView</code> 来结束编辑</p>
+<h3 id="限制-UITextView-或-UItextField-的输入字数"><a href="#限制-UITextView-或-UItextField-的输入字数" class="headerlink" title="限制 UITextView 或 UItextField 的输入字数"></a>限制 UITextView 或 UItextField 的输入字数</h3><p>说到限制UITextView的字数我们很容易的会想到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text &#123;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>说到限制UITextField字数会想到类似的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string &#123;</div><div class="line">- </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但你尝试一下就会发现这两个方法并不能完全达到限制字数的作用，比如：</p>
+<ol>
+<li>输入中文达到规定上限，你继续点击联想出来的中文依然会显示在UITextField 或 UITextView 中</li>
+<li>输入文字达到上限时，如果你点击了联想字符后你还可以输入Emoji表情</li>
+</ol>
+<p>不信你试试啊!!!</p>
+<p>为了解决这个问题我下面方法👇</p>
+<ul>
+<li>在UIKit库中苹果分别为我们提供了 UItextView 和 UITextField 通知方法，来监听 UITextView 或 UITextField 的编辑状态。</li>
+</ul>
+<p>UITextView</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">UIKIT_EXTERN NSNotificationName const UITextViewTextDidBeginEditingNotification;</div><div class="line">UIKIT_EXTERN NSNotificationName const UITextViewTextDidChangeNotification;</div><div class="line">UIKIT_EXTERN NSNotificationName const UITextViewTextDidEndEditingNotification;</div></pre></td></tr></table></figure>
+<p>UITextField</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">UIKIT_EXTERN NSNotificationName const UITextFieldTextDidBeginEditingNotification;</div><div class="line">UIKIT_EXTERN NSNotificationName const UITextFieldTextDidEndEditingNotification;</div><div class="line">UIKIT_EXTERN NSNotificationName const UITextFieldTextDidChangeNotification;</div><div class="line"></div><div class="line">UIKIT_EXTERN NSString *const UITextFieldDidEndEditingReasonKey NS_AVAILABLE_IOS(10_0);</div></pre></td></tr></table></figure>
+<ul>
+<li>我们来自己添加监听者监听UItextView 或 UITextFiled的编辑状态并执行对应的方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[[NSNotificationCenter defaultCenter]</div><div class="line">    addObserver:self</div><div class="line">    selector:@selector(textViewEditChanged:)</div><div class="line">    name:@&quot;UITextViewTextDidChangeNotification&quot;</div><div class="line">    object:self.textInput];</div></pre></td></tr></table></figure>
+<ul>
+<li><p>首先先要搞懂几个概念</p>
+<ul>
+<li>UItextInput Protocol :一个协议UITextView 和 UITextFiled 都要遵循这个协议</li>
+<li>markedText: 存在在输入框中但还没有点击确认的文字</li>
+<li>UITextRange: 遵循 UItextInput 协议的类都要创建这个子类和UITextPosition 子类。他用来表示TextField 或者 TextView 在文本容器中的范围</li>
+<li>UITextPosition: 遵循 UItextInput 协议的类都要创建这个子类和UITextRange 子类。 他用来表示UITextView 或者 UITextField 在文本容器中的位置</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>The text input system uses both these objects and UITextRange objects for communicating text-layout information. There are two reasons for using objects for text positions rather than primitive types such as NSInteger:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">- (void)textViewEditChanged:(NSNotification *)obj &#123;</div><div class="line"></div><div class="line">    UITextView *textField = (UITextView *)obj.object;</div><div class="line">    NSString *toBeString = textField.text;</div><div class="line">    UITextRange *selectedRange = [textField markedTextRange];</div><div class="line">    UITextPosition *position =</div><div class="line">    [textField positionFromPosition:selectedRange.start offset:0];</div><div class="line">        </div><div class="line">    if (!position) &#123;</div><div class="line">        if (toBeString.length &gt; 200) &#123;</div><div class="line">            NSRange rangeIndex =</div><div class="line">            [toBeString rangeOfComposedCharacterSequenceAtIndex:200];</div><div class="line">             //如果是汉字，就直接截取到限制的最大字符数</div><div class="line">            if (rangeIndex.length == 1) &#123;</div><div class="line">                textField.text = [toBeString substringToIndex:200];</div><div class="line">            &#125; else &#123;</div><div class="line">            //如果不是汉字，那就是emoji表情了，就截取到包括完整emoji表情后的range范围的字符</div><div class="line">                NSRange rangeRange = [toBeString</div><div class="line">                                      rangeOfComposedCharacterSequencesForRange:NSMakeRange(0, 200)];</div><div class="line">                textField.text = [toBeString substringWithRange:rangeRange];</div><div class="line">            &#125;</div><div class="line">            [[UIApplication sharedApplication].keyWindow</div><div class="line">             showToastMessage:@&quot;提示&quot;</div><div class="line">             subTitle:@&quot;描述最多输入200个字&quot;</div><div class="line">             type:MessageTypeFailed];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最后我们来解释一下这个方法的作用 <code>rangeOfComposedCharacterSequenceAtIndex</code></p>
+<p>每一个中文或者英文在NSString中的length均为1，但是一个Emoji的length的长度为2或者4，如果使用substringToIndex可能存在把Emoji截断而导致乱码的情况<br>所以使用rangeOfComposedCharacterSequenceAtIndex或者rangeOfComposedCharacterSequencesForRange方法，避免截断完整字符</p>
+<hr>
+<h2 id="截图拼图处理"><a href="#截图拼图处理" class="headerlink" title="截图拼图处理"></a>截图拼图处理</h2><p>因为我们需求是将很多图片拼接成一张图片，然后通过社交平台分享出去，分享出去的就是已经拼接好的图片，在此过程中用户是在应用内部看不到这张图片的</p>
+<p>原理是这样的：</p>
+<p>将所有图片取出来保存在数组中 —&gt; 计算出所有image叠加起来的高度 —&gt; 设置画布大小 —&gt; 在画布上开始画图（UIGraphicsBeginImageContextWithOptions）—&gt; 画图结束（UIGraphicsEndImageContext）</p>
+<p>下面的代码有些复杂，不仅需要拼接图片还要将二维码和地理位置信息拼接上去,如图：<br><img src="http://upload-images.jianshu.io/upload_images/1614000-831ac63a6d22fd39.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="分享照片"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">  // 生成多张图片拼接</div><div class="line">if (resources.count &gt; 0) &#123;</div><div class="line">    </div><div class="line">    __block NSMutableArray *images = [NSMutableArray array];</div><div class="line">    __block CGFloat imageHeight = 0.0;</div><div class="line">    </div><div class="line">    dispatch_group_t group = dispatch_group_create();</div><div class="line">    NSUInteger count = resources.count;</div><div class="line">    for (unsigned int i = 0; i &lt; count; i++) &#123;</div><div class="line">        dispatch_group_enter(group);</div><div class="line">        [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:resources[i]] options:0 progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) &#123;</div><div class="line">            if (image) &#123;</div><div class="line">                [images addObject:image];</div><div class="line">                imageHeight = imageHeight  + (image.size.height * (ScreenWidth / image.size.width)) ;</div><div class="line">            &#125;</div><div class="line">            dispatch_group_leave(group);</div><div class="line">        &#125;];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    LocationAndDateView *view = [LocationAndDateView viewFromXib];</div><div class="line">    [view bindData:info];</div><div class="line">    CGSize locationImageSize = CGSizeMake(ScreenWidth, CGRectGetHeight(view.bounds));</div><div class="line">    UIGraphicsBeginImageContextWithOptions(locationImageSize, NO, [UIScreen mainScreen].scale);</div><div class="line">    [view drawViewHierarchyInRect:CGRectMake(0, 0, ScreenWidth, CGRectGetHeight(view.bounds)) afterScreenUpdates:YES];</div><div class="line">    UIImage *locationImage = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">    UIGraphicsEndImageContext();</div><div class="line">    </div><div class="line">    UIImage *QRImage = [UIImage imageNamed:@&quot;shareImage_QR&quot;];</div><div class="line">    CGSize QRImageSize = CGSizeMake(ScreenWidth,QRImage.size.height * (ScreenWidth / QRImage.size.width));</div><div class="line">    UIGraphicsBeginImageContextWithOptions(QRImageSize, NO, [UIScreen mainScreen].scale);</div><div class="line"></div><div class="line">    dispatch_group_notify(group, dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0), ^&#123;</div><div class="line">        self.topContainerHeight.constant = imageHeight;</div><div class="line">        CGSize size = CGSizeMake(ScreenWidth, imageHeight +QRImage.size.height * (ScreenWidth / QRImage.size.width));</div><div class="line">        UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);</div><div class="line">        CGFloat lastImageHeight = 0.0;</div><div class="line">        for (unsigned int i = 0; i &lt; images.count; i++) &#123;</div><div class="line">            UIImage *image = images[i];</div><div class="line">            [image drawInRect:CGRectMake(0, lastImageHeight, ScreenWidth , (image.size.height * (ScreenWidth / image.size.width)))];</div><div class="line">            lastImageHeight  = lastImageHeight +  (image.size.height * (ScreenWidth / image.size.width));</div><div class="line">        &#125;</div><div class="line">        [locationImage drawInRect:CGRectMake(0, imageHeight - locationImage.size.height, ScreenWidth , locationImage.size.height)];</div><div class="line">        [QRImage drawInRect:CGRectMake(0, lastImageHeight, ScreenWidth, QRImage.size.height * (ScreenWidth / QRImage.size.width))];</div><div class="line">        UIImage *stitchImage = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">        UIGraphicsEndImageContext();</div><div class="line">        </div><div class="line">        self.headerImageView.image = stitchImage;</div><div class="line">        self.headerImageView.contentMode = UIViewContentModeScaleAspectFit;</div><div class="line">        self.headerImageView.clipsToBounds = YES;</div><div class="line">        [self.topContainer setBackgroundColor:[UIColor colorWithPatternImage:stitchImage]];</div><div class="line">        </div><div class="line">        dispatch_async(dispatch_get_main_queue(), ^&#123;</div><div class="line">            completion(stitchImage);</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">&#125; else &#123; // 分享文字生成一张图片</div><div class="line">    self.topContainerHeight.constant = ScreenHeight / 2 - 40;</div><div class="line">    self.headerImageView.image = [UIImage imageNamed:@&quot;bg_scenic_header&quot;];</div><div class="line">    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO,</div><div class="line">                                           [UIScreen mainScreen].scale);</div><div class="line">    [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:YES];</div><div class="line">    UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">    UIGraphicsEndImageContext();</div><div class="line">    completion(screenshot);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>针对图片拼接我写了一个简单的Demo <a href="https://github.com/Jeavil/TImageJoiningDemo" target="_blank" rel="external">GitHub地址</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Jeavil/Jeavil.github.io" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
