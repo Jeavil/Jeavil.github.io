@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="Buffering...">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Jeavil">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="ReactNative开发过程中的那些磕磕绊绊"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Buffering..." />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Jeavil&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>ReactNative开发过程中的那些磕磕绊绊 - Jeavil&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Jeavil/Jeavil.github.io">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>ReactNative开发过程中的那些磕磕绊绊</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-01-12
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="ReactNative开发过程中的那些磕磕绊绊"><a href="#ReactNative开发过程中的那些磕磕绊绊" class="headerlink" title="ReactNative开发过程中的那些磕磕绊绊"></a>ReactNative开发过程中的那些磕磕绊绊</h1><p>近几个迭代版本我们大iOS都是采用react-native开发的，因为技术比较新，开发过程中遇到各种各样的问题再是在所难免的。忙里偷闲，赶紧把遇到的问题及解决方案做个总结，免得日后又忘了。</p>
+<h3 id="问题一："><a href="#问题一：" class="headerlink" title="问题一："></a>问题一：</h3><p>如图：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1614000-76d15837eb4793e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="报错信息.png"></p>
+<p>不知道大家有没有遇到过类似的问题。上图中的报错我是在3.14.0版本的开发中第一次遇到，老实说这个问题困扰了我一天，我尝试了各种方法，并且利用 Chorme 联机调试也没发现问题的所在。<br>这个问题发生了三次：</p>
+<p>第一次，是在render里的ListView 组件中，只要我添加了ListView就回报错，但是将ListView替换成普通的View就没有问题了，这下好了锁定目标，一定是ListView有问题，哪里没有配置好。</p>
+<p>第二次，发生在渲染自定义Cell中，和第一次在一个类中。</p>
+<p>第三次，发生在条件判断中。</p>
+<p>不要着急，下面听我给你娓娓道来</p>
+<h4 id="情况一："><a href="#情况一：" class="headerlink" title="情况一："></a>情况一：</h4><p>来粘段代码看看：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">render() &#123;</div><div class="line">        if (this.state.offline) &#123;</div><div class="line">            return (</div><div class="line">                &lt;GuideOfflineView /&gt;</div><div class="line">            );</div><div class="line">        &#125;</div><div class="line">        if (!this.state.data) &#123;</div><div class="line">            return (</div><div class="line">                &lt;LoadingView /&gt;</div><div class="line">            );</div><div class="line">        &#125;</div><div class="line">        return (</div><div class="line">            &lt;View style=&#123;&#123; flex: 1 &#125;&#125;&gt;</div><div class="line">                &lt;View style=&#123;&#123;</div><div class="line">                    width: App.Constant.screenWidth,</div><div class="line">                    marginTop: 30,</div><div class="line">                    marginBottom:20,</div><div class="line">                    flexDirection: &apos;row&apos;,</div><div class="line">                    alignItems: &apos;flex-start&apos;,</div><div class="line">                    justifyContent: &apos;space-between&apos;,</div><div class="line">                &#125;&#125;&gt;</div><div class="line">                    &lt;TouchableOpacity style=&#123;&#123;</div><div class="line">                        marginLeft: 20,</div><div class="line">                    &#125;&#125;</div><div class="line">                        onPress=&#123;this.onCloseBtnPress&#125;&gt;</div><div class="line">                        &lt;Image source=&#123;App.Image.btn.guideListClose&#125; /&gt;</div><div class="line">                    &lt;/TouchableOpacity&gt;</div><div class="line">                    &lt;Text style=&#123;&#123;</div><div class="line">                        fontSize: 17,</div><div class="line">                        color: App.Color.darkGray,</div><div class="line">                        textAlign: &apos;center&apos;,</div><div class="line">                    &#125;&#125;&gt;</div><div class="line">                        Title</div><div class="line">                &lt;/Text&gt;</div><div class="line">                    &lt;View style=&#123;&#123;</div><div class="line">                        marginRight: 20,</div><div class="line">                        height: 13,</div><div class="line">                        width: 13,</div><div class="line">                    &#125;&#125; /&gt;</div><div class="line">                &lt;/View&gt;</div><div class="line">                &lt;TableView</div><div class="line">                    data=&#123;this.state.data&#125;</div><div class="line">                    dataSource=&#123;this.state.dataSource&#125;</div><div class="line">                    requestData=&#123;this.loadMoreData&#125;</div><div class="line">                /&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">        );</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>这里是render()页面，里面的TableView是我自定义的ListView组件，为了使代码更清晰，就把他提出来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">const TableView = (&#123;</div><div class="line">    style,</div><div class="line">    dataSource,</div><div class="line">    data,</div><div class="line">    requestData,</div><div class="line">&#125;) =&gt; &#123;</div><div class="line">    const loadMoreMessage = () =&gt; &#123;</div><div class="line">        if (data.items.length === data.total) &#123;</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        requestData();</div><div class="line">    &#125;;</div><div class="line">    if (dataSource === undefined || dataSource.getRowCount() === 0) &#123;</div><div class="line">        return (</div><div class="line">            &lt;View style=&#123;&#123;</div><div class="line">                flex: 1,</div><div class="line">                alignItems: &apos;center&apos;,</div><div class="line">                justifyContent: &apos;center&apos;,</div><div class="line">            &#125;&#125;&gt;</div><div class="line">                &lt;Text style=&#123;&#123;</div><div class="line">                    alignItems: &apos;center&apos;,</div><div class="line">                    justifyContent: &apos;center&apos;,</div><div class="line">                    fontSize: 14,</div><div class="line">                    color: App.Color.darkGray,</div><div class="line">                &#125;&#125;&gt;</div><div class="line">                    暂无云导游</div><div class="line">                &lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">        );</div><div class="line">    &#125; else &#123;</div><div class="line">        return &lt;ListView</div><div class="line">            opacity=&#123;1&#125;</div><div class="line">            dataSource=&#123;dataSource&#125;</div><div class="line">            renderRow=&#123;GuideListCell&#125;</div><div class="line">            showVerticalScrollIndicator=&#123;false&#125;</div><div class="line">            enableEmptySections=&#123;true&#125;</div><div class="line">            onEndReached=&#123;() =&gt; &#123; loadMoreMessage(); &#125; &#125;</div><div class="line">            onEndReachedThreshold=&#123;20&#125;</div><div class="line">            renderSeparator=&#123;(sectionID, rowID) =&gt; &#123;</div><div class="line">                return (</div><div class="line">                    &lt;View</div><div class="line">                        key=&#123;`$&#123;sectionID&#125;-$&#123;rowID&#125;`&#125;</div><div class="line">                        style=&#123;&#123;</div><div class="line">                            height: 0,</div><div class="line">                            width: App.Constant.screenWidth,</div><div class="line">                            marginTop: 20,</div><div class="line">                        &#125;&#125; /&gt;</div><div class="line">                );</div><div class="line">            &#125; &#125;</div><div class="line">            /&gt;;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>在ListView中配置了 datasource 和自定义 cell，经验告诉我这里ListView出问题不是datasource有问题就是自定义cell又问题。</p>
+<h4 id="第一步：检查dataSource"><a href="#第一步：检查dataSource" class="headerlink" title="第一步：检查dataSource"></a>第一步：检查dataSource</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">updateDataSource(data) &#123;</div><div class="line">        if (data !== undefined) &#123;</div><div class="line">            let newData;</div><div class="line">            if (this.state.data !== undefined) &#123;</div><div class="line">                newData = this.state.data;</div><div class="line">                newData.items = this.state.data.items.concat(data.items);</div><div class="line">            &#125; else &#123;</div><div class="line">                newData = data;</div><div class="line">            &#125;</div><div class="line">            var ds = new ListView.DataSource(&#123; rowHasChanged: (r1, r2) =&gt; r1 !== r2 &#125;);</div><div class="line">            this.setState(&#123;</div><div class="line">                data: newData,</div><div class="line">                dataSource: ds.cloneWithRows(newData.items),</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>在我请求完数据后对 ListView 的 datasource 也按要求进行了配置。</p>
+<blockquote>
+<p>这里我想稍微提一下：ListView 对它的 datasource 是有严格格式要求的，首先 datasource 必须是数组，这样它才能根据不同的 rowID 来取出对应数据进行渲染。其次，想要 ListView 使用 datasource 必须要经过 <strong><em>ds.cloneWithRow(dataSource)</em></strong> 操作，这步操作主要是为了提取新数据并进行逐行进行比较，这样ListView就知道哪些行需要重新渲染。</p>
+</blockquote>
+<p>来打印一下数据看ListView的dataSource对不对</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">&apos;---&gt;&gt; dataSource&apos;, &#123; _rowHasChanged: [Function: rowHasChanged],</div><div class="line">  _getRowData: [Function: defaultGetRowData],</div><div class="line">  _sectionHeaderHasChanged: [Function],</div><div class="line">  _getSectionHeaderData: [Function: defaultGetSectionHeaderData],</div><div class="line">  _dataBlob: </div><div class="line">   &#123; s1: </div><div class="line">      [ </div><div class="line">        &#123; _id: &apos;36398d0d3c3a43cb86473f411eb4094a&apos;,</div><div class="line">          name: &apos;台东区&apos;,</div><div class="line">          weight: 12,</div><div class="line">          items: </div><div class="line">           [ &#123; _id: &apos;706b5c36479742308603788a74b6781c&apos;,</div><div class="line">               location: &#123; lat: 0, lng: 0 &#125;,</div><div class="line">               cover: &#123; source: &apos;https://image-cdn.fishsaying.com/89be2d8757cf47dbb1152abb08d765b6.jpg&apos; &#125;,</div><div class="line">               scenic_id: &apos;36398d0d3c3a43cb86473f411eb4094a&apos;,</div><div class="line">               title: &apos;东京台东区 大和风骨&apos;,</div><div class="line">               weight: 12 &#125; ] &#125;,</div><div class="line">      </div><div class="line">        &#123; _id: &apos;9de32b5fffd7451883ff16e0905bb8e3&apos;,</div><div class="line">          name: &apos;涩谷&apos;,</div><div class="line">          weight: 14,</div><div class="line">          items: </div><div class="line">           [ &#123; _id: &apos;d643b686ad54426dbd22120861636dd2&apos;,</div><div class="line">               location: &#123; lat: 0, lng: 0 &#125;,</div><div class="line">               cover: &#123; source: &apos;https://image-cdn.fishsaying.com/a9f971ef9d7647a8aa7586431e7db972.jpg&apos; &#125;,</div><div class="line">               scenic_id: &apos;9de32b5fffd7451883ff16e0905bb8e3&apos;,</div><div class="line">               title: &apos;东京涩谷区 时尚前沿&apos;,</div><div class="line">               weight: 14 &#125; ] &#125;,</div><div class="line">        &#123; _id: &apos;1c6eeeaa96f647e9b3afc9456ccb4e6e&apos;,</div><div class="line">          name: &apos;新宿&apos;,</div><div class="line">          weight: 15,</div><div class="line">          items: </div><div class="line">           [ &#123; _id: &apos;0ae445cf20424c08ac12e03c500a7a46&apos;,</div><div class="line">               location: &#123; lat: 0, lng: 0 &#125;,</div><div class="line">               cover: &#123; source: &apos;https://image-cdn.fishsaying.com/d872e0876ae44481a391c17bbac76515.jpg&apos; &#125;,</div><div class="line">               scenic_id: &apos;1c6eeeaa96f647e9b3afc9456ccb4e6e&apos;,</div><div class="line">               title: &apos;东京新宿区 都市传说&apos;,</div><div class="line">               weight: 15 &#125; ] &#125;,</div><div class="line">        &#123; _id: &apos;54cdcbb39a0b8ad439d0605c&apos;,</div><div class="line">          name: &apos;塔尔寺景区&apos;,</div><div class="line">          weight: 21,</div><div class="line">          items: </div><div class="line">           [ &#123; _id: &apos;109e76e39d6b428a9e5c93cdc11f3367&apos;,</div><div class="line">               location: &#123; lat: 0, lng: 0 &#125;,</div><div class="line">               cover: &#123; source: &apos;https://image-cdn.fishsaying.com/485283515ff346119903fc0d000050eb.jpg&apos; &#125;,</div><div class="line">               scenic_id: &apos;54cdcbb39a0b8ad439d0605c&apos;,</div><div class="line">               title: &apos;塔尔寺云导游&apos;,</div><div class="line">               weight: 21 &#125; ] &#125; ] &#125;,</div><div class="line">  _dirtyRows: </div><div class="line">   [ [ true,</div><div class="line">       true,</div><div class="line">       true,</div><div class="line">       true ] ],</div><div class="line">  _dirtySections: [ true ],</div><div class="line">  _cachedRowCount: 4,</div><div class="line">  rowIdentities: [ [ &apos;0&apos;, &apos;1&apos;, &apos;2&apos;, &apos;3&apos; ] ],</div><div class="line">  sectionIdentities: [ &apos;s1&apos; ] &#125;</div></pre></td></tr></table></figure>
+<p>一切正常，格式标准，说明打dataSource是没有问题的。</p>
+<p><strong>排除dataSource出错。</strong></p>
+<h4 id="第二步：检查renderRow中配置的Cell"><a href="#第二步：检查renderRow中配置的Cell" class="headerlink" title="第二步：检查renderRow中配置的Cell"></a>第二步：检查renderRow中配置的Cell</h4><p>这里我所传进去的是自定义的Cell –&gt; GuideListCell</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">import React from &apos;react&apos;; // eslint-disable-line no-unused-vars</div><div class="line">import &#123;</div><div class="line">    View,</div><div class="line">    StyleSheet,</div><div class="line">&#125; from &apos;react-native&apos;;</div><div class="line"></div><div class="line">import App from &apos;.././helper/app.js&apos;;</div><div class="line">import CloudGuideContainer from &apos;./CloudGuideContainer.js&apos;;</div><div class="line"></div><div class="line">const Constants = &#123;</div><div class="line">  height: App.Constant.screenWidth * 0.58,</div><div class="line">  width: App.Constant.screenWidth - 40,</div><div class="line">&#125;;</div><div class="line"></div><div class="line">const GuideListCell = (rowData, sectionID, rowID) =&gt; &#123;</div><div class="line">   const name = rowData.name;</div><div class="line">   return (</div><div class="line">     &lt;View style = &#123;styles.container&#125;&gt;</div><div class="line">        &lt;Text style = &#123;styles.title&#125;&gt;</div><div class="line">        &#123;name&#125;</div><div class="line">        &lt;/Text&gt;</div><div class="line">      &lt;View style = &#123;styles.listContainer&#125;&gt;</div><div class="line">        &lt;CloudGuideContainer dataSource = &#123;rowData&#125; /&gt;</div><div class="line">      &lt;/View&gt;</div><div class="line">     &lt;/View&gt;</div><div class="line">);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">const styles = StyleSheet.create(&#123;</div><div class="line">  container: &#123;</div><div class="line">    flex: 1,</div><div class="line">    justifyContent: &apos;flex-start&apos;,</div><div class="line">    alignItems: &apos;center&apos;,</div><div class="line">    width:Constants.width,</div><div class="line">    height:Constants.height,</div><div class="line">    marginLeft:20,</div><div class="line">  &#125;,</div><div class="line">  listContainer: &#123;</div><div class="line">    marginTop:20,</div><div class="line">    width:Constants.width,</div><div class="line">    height:Constants.height,</div><div class="line">  &#125;,</div><div class="line">  title: &#123;</div><div class="line">    width:Constants.width,</div><div class="line">    fontSize: 14,</div><div class="line">    color: App.Color.darkGray,</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">export default GuideListCell;</div></pre></td></tr></table></figure>
+<p>看起来也没有啥问题呀，reload 一下还是报同样的错误，Chrome调试断点又不能在return的组件里面打，最后会crash在react里面的js文件中😔这还怎么玩？</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1614000-592ea50ac2e841fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Chrome调试报错信息.png"></p>
+<p>无奈之下我用一个最笨的办法来找报错原因，把return方法中的所有代码都注释掉，只留一个<view>给这个View一个背景色，果然这样ListView出来了，不报错了😄找这样的方法，一个控件一个控件的打开。几分钟的时间就找到问题了 —— <strong>Text</strong>，你就是罪魁祸首。可为什么呢，于是我从第一行开始重新浏览代码，结果让我恨毒了自己</view></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import &#123;</div><div class="line">    View,</div><div class="line">    StyleSheet,</div><div class="line">&#125; from &apos;react-native&apos;;</div></pre></td></tr></table></figure>
+<p>这里面忘了import Text 了😢</p>
+<p>So，不要对Rect的报错机制有太大幻想，的确有时他会报错说没有找个这个组件或者变量，但有的时候人家就会给你报些摸不着头脑的错误信息。</p>
+<p><strong>自定义Cell出了问题，这个猜测是对的。</strong></p>
+<h4 id="情况二："><a href="#情况二：" class="headerlink" title="情况二："></a>情况二：</h4><p>还是自定义GuideListCell中。正在我为了找到问题原因并顺利解决洋洋得意的时候，再次请求时，同样的错误又发生了，不同的只是这次报错的ID和上次不一样，但错误格式还是一毛一样。但刚才分明是好了的，界面完完整整的展现在我面前呀。于是我坚信这次不该是我的问题，一定是数据问题，再次打印请求结果发现，后台修改了返回数据，删除了name字段，但是我依然还在取rowData.name 字段，这时，name字段已经不存在了，当然会报错。这个锅后台Java大叔义不容辞的给背了。</p>
+<h4 id="情况三："><a href="#情况三：" class="headerlink" title="情况三："></a>情况三：</h4><p>粘段代码先，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">return (</div><div class="line">            &lt;View&gt;         </div><div class="line">                &#123;this.state.showEmptyView ?</div><div class="line">                    &lt;EmptyView/&gt;</div><div class="line">                    :</div><div class="line">                    &lt;View style=&#123;styles.listViewContainer&#125;&gt;</div><div class="line">                   this.state.dataSource &amp;&amp;</div><div class="line">                    &lt;ListView</div><div class="line">                    opacity=&#123;1&#125;</div><div class="line">                    dataSource=&#123;this.state.dataSource&#125;</div><div class="line">                    renderRow=&#123;ExplicitGuideCell.bind(null,this.updateDownloadStatus)&#125;</div><div class="line">                    showVerticalScrollIndicator=&#123;false&#125;</div><div class="line">                    enableEmptySections=&#123;true&#125;</div><div class="line">                    onEndReached=&#123;this.loadMoreData&#125;</div><div class="line">                    onEndReachedThreshold=&#123;20&#125;</div><div class="line">                    renderSeparator=&#123;(sectionID, rowID) =&gt; &#123;</div><div class="line">                        return (</div><div class="line">                            &lt;View</div><div class="line">                                key=&#123;`$&#123;sectionID&#125;-$&#123;rowID&#125;`&#125;</div><div class="line">                                style=&#123;&#123;</div><div class="line">                                    height: 0,</div><div class="line">                                    width: App.Constant.screenWidth,</div><div class="line">                                    marginTop: 10,</div><div class="line">                                &#125;&#125; /&gt;</div><div class="line">                        );</div><div class="line">                    &#125; &#125;</div><div class="line">                    /&gt;</div><div class="line">                &lt;/View&gt;</div><div class="line">                &#125;</div><div class="line">                &lt;/View&gt;</div><div class="line">                &lt;/Image&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">        );</div></pre></td></tr></table></figure>
+<p>这段代码逻辑很简单，就是如果请求回来的数据为空时，显示空页面，否则，判断this.state.datasource 是否存在，存在就显示ListView。<br>reload 一下，又是那个熟悉的红色界面，背心一阵寒意，这么简单的界面怎么又错了，积累了前两次的经验，我把import中的组件都检查了一遍，用到的都导入了，数据请求成功后也给this.state 设置了数据，为什么还报错呢？<br>的确，这里有两层条件判断，一个疏忽就会出问题，所以我还是不建议在return 组件中进行太复杂的逻辑判断。<strong>错误原因竟是一对花括号</strong></p>
+<p>二层逻辑判断 <code>this.state.dataSource &amp;&amp;</code> 前后忘记了花括号。</p>
+<blockquote>
+<p>综上所述，不难看出以上三种情况都报了同样的错误，不同的只是ID。虽然错误信息让你迷茫，但这三种情况都出现在渲染界面的时候，所以均与return（）方法相关。</p>
+<p>以后若是在遇到这种错误，不妨多在渲染界面的方法中找找原因吧！</p>
+</blockquote>
+<h3 id="问题二："><a href="#问题二：" class="headerlink" title="问题二："></a>问题二：</h3><p>有个界面是这样的</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1614000-465360ce15d40c4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="列表.png"></p>
+<p>一个列表中的cell里面又是一个列表，并且里层的列表可以向左滑动浏览。<br>我的想法就是，外面一个ListView，在这个ListView的Cell里面又是一个横向滑动的ListView。找到思路了那就开工吧！</p>
+<p>结果是在 react-native 中不能直接嵌套使用 ListView，也就是说，不可以在首层的ListView的Cell 中直接再嵌套一个 ListView，就像这样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">const GuideListCell = (rowData, sectionID, rowID) =&gt; &#123;</div><div class="line">   const name = rowData.name;</div><div class="line">   return (</div><div class="line">     &lt;View style = &#123;styles.container&#125;&gt;</div><div class="line">        &lt;Text style = &#123;styles.title&#125;&gt;</div><div class="line">        &#123;name&#125;</div><div class="line">        &lt;/Text&gt;</div><div class="line">      &lt;View style = &#123;styles.listContainer&#125;&gt;</div><div class="line">      &lt;ListVeew </div><div class="line">       dataSource = &#123;rowData&#125;</div><div class="line">       renderRow = &#123;CustomerCell&#125; </div><div class="line">       /&gt;</div><div class="line">      &lt;/View&gt;</div><div class="line">     &lt;/View&gt;</div><div class="line">);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>亲身试验这样是不行的,具体报错信息搞忘了😂</p>
+<h5 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h5><p>不能直接嵌套，那我就间接嵌套呗！先用一个View把二层的ListView封装进去，然后在一层的ListView Cell中调用这个空间就行啦！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">const GuideListCell = (rowData, sectionID, rowID) =&gt; &#123;</div><div class="line">   const name = rowData.name;</div><div class="line">   return (</div><div class="line">     &lt;View style = &#123;styles.container&#125;&gt;</div><div class="line">        &lt;Text style = &#123;styles.title&#125;&gt;</div><div class="line">        &#123;name&#125;</div><div class="line">        &lt;/Text&gt;</div><div class="line">      &lt;View style = &#123;styles.listContainer&#125;&gt;</div><div class="line">        &lt;CloudGuideContainer dataSource = &#123;rowData&#125; /&gt;</div><div class="line">      &lt;/View&gt;</div><div class="line">     &lt;/View&gt;</div><div class="line">);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>其中CloudGuideContainer 就是那个包裹，用来包裹二层ListView</p>
+<p>来看看这个包裹的真面目吧！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">import React from &apos;react&apos;; // eslint-disable-line no-unused-vars</div><div class="line">import &#123;</div><div class="line">  View,</div><div class="line">  ListView,</div><div class="line">&#125; from &apos;react-native&apos;;</div><div class="line"></div><div class="line">import App from &apos;.././helper/app.js&apos;;</div><div class="line">import CloudGuideCell from &apos;./CloudGuideCell.js&apos;;</div><div class="line"></div><div class="line">const Constants = &#123;</div><div class="line">  height: App.Constant.screenWidth * 0.4776,</div><div class="line">&#125;;</div><div class="line"></div><div class="line">const CloudGuideContainer = (&#123;dataSource&#125;) =&gt; &#123;</div><div class="line">    const ds = new ListView.DataSource(&#123; rowHasChanged: (r1, r2) =&gt; r1 !== r2 &#125;);</div><div class="line">    const guideDataSource = ds.cloneWithRows(dataSource.items);</div><div class="line">    return (</div><div class="line">        &lt;ListView</div><div class="line">            style = &#123;&#123;overflow: &apos;visible&apos;,&#125;&#125;</div><div class="line">            enableEmptySections=&#123;true&#125;</div><div class="line">            showsHorizontalScrollIndicator=&#123;false&#125;</div><div class="line">            horizontal=&#123;true&#125;</div><div class="line">            dataSource=&#123;guideDataSource&#125;</div><div class="line">            renderRow=&#123;CloudGuideCell&#125;</div><div class="line">            renderSeparator=&#123;(sectionID, rowID) =&gt; &#123;</div><div class="line">                return (</div><div class="line">                    dataSource.items.length &gt; 1 ?</div><div class="line">                    &lt;View</div><div class="line">                    key=&#123;`$&#123;sectionID&#125;-$&#123;rowID&#125;`&#125;</div><div class="line">                    style=&#123;&#123;</div><div class="line">                        width: 10,</div><div class="line">                         height: Constants.height,</div><div class="line">                    &#125;&#125; /&gt; : null</div><div class="line">                );</div><div class="line">                &#125; &#125;</div><div class="line">            /&gt;</div><div class="line">        );</div><div class="line">&#125;;</div><div class="line"></div><div class="line">export default CloudGuideContainer;</div></pre></td></tr></table></figure>
+<p>机智如我，哈哈😄</p>
+<h3 id="问题三："><a href="#问题三：" class="headerlink" title="问题三："></a>问题三：</h3><p>关于this.state,不太了解的建议直接看<a href="http://reactnative.cn/docs/0.40/state.html#content" target="_blank" rel="external">官方文档</a></p>
+<p>我遇到到问题是这样的，有一个列表数据很多，需要分页请求，因此我在this.state 中声明一个变量 page 初始值为 0 ，每次请求的时候给state的page加一，直到this.state.data.length === this<br>.state.data.total 的时候停止请求直接return，这个做法看上去是没有的问题的，但是在特殊情况下就回发生错误，比如下图是一个搜索功能，当输入关键字后点击搜索将会请求数据。但是会有这种情况，当我输完关键字后搜索了几页数据后，我点击TextInput，但是没有修改关键字，再次点击搜索这时我的page应该从1开始才对，可实验证明，page会从上一次的计数值往上加1，而不是从1开始。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1614000-c3ccea9f9456d23d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="搜索.png"></p>
+<p>下面粘上部分相关代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">export default class SearchDetail extends React.Component &#123;</div><div class="line">    constructor(props)&#123;</div><div class="line">        super(props);</div><div class="line">        this.state = &#123;</div><div class="line">            title: props.title,</div><div class="line">            keyword: props.keyword,</div><div class="line">            contentStr:props.keyword,</div><div class="line">            cellType:undefined,</div><div class="line">            data: undefined,</div><div class="line">            dataSource: undefined,</div><div class="line">            showEmptyView:false,</div><div class="line">            fetchingData:false,</div><div class="line">            page:0,</div><div class="line">        &#125;;</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">   // 请求数据</div><div class="line">	 async fetchData (keyword) &#123;</div><div class="line">      var urlStr;</div><div class="line">      var cell;</div><div class="line">      const nextIndex = this.state.page + 1;</div><div class="line">      this.setState(&#123;</div><div class="line">        cellType: cell,</div><div class="line">        fetchingData:true,</div><div class="line">      &#125;);</div><div class="line">      try &#123;</div><div class="line">            const result = await App.Request.get(&#123;</div><div class="line">                url: urlStr,</div><div class="line">                parameters: &#123;</div><div class="line">                    page: nextIndex,</div><div class="line">                    limit: App.Constant.limit,</div><div class="line">                    keyword:keyword,</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">            this.updateDataSource(result);</div><div class="line">        &#125; catch (error) &#123;</div><div class="line">            this.setState(&#123;</div><div class="line">                data: [],</div><div class="line">                offline: true,</div><div class="line">                fetchingVoices: false,</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // 点击搜索</div><div class="line">     submitKeyWords(text) &#123;</div><div class="line">        this.setState(&#123;</div><div class="line">            showEmptyView:false,</div><div class="line">            dataSource:undefined,</div><div class="line">            data:undefined,,</div><div class="line">            page:0</div><div class="line">        &#125;);</div><div class="line">        this.fetchData(text);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>我先搜索武侯祠相关数据，请求三页</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">2017-01-12 14:31:21.210 [info][tid:com.facebook.react.JavaScript] &apos;---&gt;&gt; page&apos;, 1</div><div class="line">2017-01-12 14:31:21.210172 FishSaying[5377:3542880] &apos;---&gt;&gt; page&apos;, 1</div><div class="line">2017-01-12 14:31:25.409 [info][tid:com.facebook.react.JavaScript] &apos;---&gt;&gt; page&apos;, 2</div><div class="line">2017-01-12 14:31:25.409329 FishSaying[5377:3542880] &apos;---&gt;&gt; page&apos;, 2</div><div class="line">2017-01-12 14:31:27.649 [info][tid:com.facebook.react.JavaScript] &apos;---&gt;&gt; page&apos;, 3</div><div class="line">2017-01-12 14:31:27.652452 FishSaying[5377:3542880] &apos;---&gt;&gt; page&apos;, 3</div></pre></td></tr></table></figure>
+<p>接着我不修改任何关键字，再次点击搜索</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[tid:com.facebook.react.JavaScript] &apos;---&gt;&gt; page&apos;, 4</div><div class="line">2017-01-12 14:31:57.153670 FishSaying[5377:3542880] &apos;---&gt;&gt; page&apos;, 4</div></pre></td></tr></table></figure>
+<p>page并没有如我所愿的从1开始。也就是说我在submitKeyWords(text)方法中，在fetchData之前给将state中的page设为0，并没有起作用。说不起作用可能有些不妥，只能说在我用state的page的时候它至少还不为0。因此我推断this.setState方法可能是异步的。于是我google了一下果不其然</p>
+<blockquote>
+<p>State Updates May Be Asynchronous<br>React may batch multiple setState() calls into a single update for performance.</p>
+<p>Because this.props and this.state may be updated asynchronously, you should not rely on their values for calculating the next state.</p>
+</blockquote>
+<p>文档地址<a href="https://facebook.github.io/react/docs/state-and-lifecycle.html" target="_blank" rel="external">https://facebook.github.io/react/docs/state-and-lifecycle.html</a></p>
+<p>好了，找到问题的原因了，那怎么解决呢？如果在OC中我一定会声明一个属性来做这件事，那不妨也在react中试一试，看是否可行。改一下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">export default class SearchDetail extends React.Component &#123;</div><div class="line">    constructor(props)&#123;</div><div class="line">        super(props);</div><div class="line">        this.page = 0;</div><div class="line">        this.state = &#123;</div><div class="line">            title: props.title,</div><div class="line">            keyword: props.keyword,</div><div class="line">            contentStr:props.keyword,</div><div class="line">            cellType:undefined,</div><div class="line">            data: undefined,</div><div class="line">            dataSource: undefined,</div><div class="line">            showEmptyView:false,</div><div class="line">            fetchingData:false,</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">  async fetchData (keyword) &#123;</div><div class="line">      var urlStr;</div><div class="line">      var cell;</div><div class="line">      const nextIndex = this.page + 1;</div><div class="line">      this.setState(&#123;</div><div class="line">        cellType: cell,</div><div class="line">        fetchingData:true,</div><div class="line">      &#125;);</div><div class="line">      this.page = nextIndex;</div><div class="line">      try &#123;</div><div class="line">            const result = await App.Request.get(&#123;</div><div class="line">                url: urlStr,</div><div class="line">                parameters: &#123;</div><div class="line">                    page: nextIndex,</div><div class="line">                    limit: App.Constant.limit,</div><div class="line">                    keyword:keyword,</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">            this.updateDataSource(result);</div><div class="line">        &#125; catch (error) &#123;</div><div class="line">            this.setState(&#123;</div><div class="line">                data: [],</div><div class="line">                offline: true,</div><div class="line">                fetchingVoices: false,</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">  submitKeyWords(text) &#123;</div><div class="line">        this.setState(&#123;</div><div class="line">            showEmptyView:false,</div><div class="line">            dataSource:undefined,</div><div class="line">            data:undefined,</div><div class="line">        &#125;);</div><div class="line">        this.page = 0;</div><div class="line">        this.fetchData(text);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>reload 一下，成功！每当我点击搜索按钮page都会先被置为0。</p>
+<h4 id="问题四："><a href="#问题四：" class="headerlink" title="问题四："></a>问题四：</h4><p>你是怎么设施Text组件的背景色透明呢？</p>
+<p>一开始我用了一种很笨的方法 <code>backgroundColor: App.Color.white.alpha(0)</code> 简直要被自己蠢哭了</p>
+<p>有次无意中看到别人的方法<br><code>backgroundColor: &#39;transparent&#39;</code><br>学习了!</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Jeavil/Jeavil.github.io" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
