@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="Buffering...">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Jeavil">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="浅谈 ReactNative 动画"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Buffering..." />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Jeavil&#39;s Blog"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>浅谈 ReactNative 动画 - Jeavil&#39;s Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Jeavil/Jeavil.github.io">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>浅谈 ReactNative 动画</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-01-16
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="浅谈-React-Native-动画"><a href="#浅谈-React-Native-动画" class="headerlink" title="浅谈 React Native 动画"></a>浅谈 React Native 动画</h1><p>在我看来，无论是用 OC还是 RN 动画无疑都是我的痛点。但是在开发3.13.0版本的时候，有一个界面必须要使用动画，并且这个界面还要用RN开发，一开始我的拒绝的，但是为了产品交互，给用户带来更好的体验，只能硬着头皮上了。其实该动画说难也不难，如果用OC就是分分钟钟的事，但是关于RN动画方面之前根本没有接触过，所以就没怎么研究。因此我花了两天才把这个动画搞出来,也是给自己点个赞。</p>
+<p>如果你不也不太了解react-native中的动画，不妨先看看<a href="http://reactnative.cn/docs/0.40/animations.html#content" target="_blank" rel="external">官方文档</a></p>
+<p>下面我对用到的属性及方法做一个简要概述：</p>
+<h2 id="Animation"><a href="#Animation" class="headerlink" title="Animation"></a>Animation</h2><h4 id="使用范围："><a href="#使用范围：" class="headerlink" title="使用范围："></a>使用范围：</h4><p>在react-native中有且仅有三个组件支持animation，它们分别是：Image，View，Text，用的最多的可能是View。</p>
+<h4 id="执行动画函数："><a href="#执行动画函数：" class="headerlink" title="执行动画函数："></a>执行动画函数：</h4><ul>
+<li><p>start():开始动画</p>
+</li>
+<li><p>stop(): 结束动画</p>
+</li>
+</ul>
+<h4 id="Value"><a href="#Value" class="headerlink" title="Value"></a>Value</h4><p>   在Animation中，设置一种类型的动画后，也要声明Value，就是动画的变化值。一般会将Value在this.state中声明，通过改变改value来实现动效，官网上给的例子就是给spring类型的动画设置bounceValue，有兴趣的小伙伴可以去官网上看，这里不做赘述。</p>
+<h4 id="动画类型："><a href="#动画类型：" class="headerlink" title="动画类型："></a>动画类型：</h4><ul>
+<li><p>spring: 弹跳动画，它包括两个参数 </p>
+<p> friction：摩擦力默认值为7 </p>
+<p> tension：张力，默认值为40</p>
+</li>
+<li><p>decay: 以一个初始值开始逐渐减慢至停止，它亦包括两个参数</p>
+<p>velocity:起始速度，不可缺省哦！</p>
+<p>deceleration:速度递减比例，默认值为0.997。</p>
+</li>
+<li><p>timing: 渐变动画,它有三个可配置参数</p>
+<p>duration:动画持续的时间，默认值为500毫秒</p>
+<p>easing: 定义曲线渐变函数。iOS中默认为Easing.inOut(Easing.ease)</p>
+<p>delay: 延迟多少毫秒后执行，默认为0</p>
+</li>
+</ul>
+<h4 id="组合动画"><a href="#组合动画" class="headerlink" title="组合动画"></a>组合动画</h4><p> 就像在OC中有组动画一样，react-native也提供了类似组动画的函数，即组合动画。你可以将多个动画通过，<strong><em>parallel, sequence, stagger和delay组合使用</em></strong>，三种方式来组织多个动画。它们所接受的参数都是一个动画数组。</p>
+<h4 id="插值-interpolate"><a href="#插值-interpolate" class="headerlink" title="插值 interpolate"></a>插值 interpolate</h4><p>插值函数是 Animation 中相对比较重要且强大的函数，如果你想实现比较流畅炫酷的动画，那么插值函数是非用不可的。在接下来我给大家展示的例子中就多次用到interpolate<br>它主要通过接受一个输入区间inputRange ，然后将其映射到一个输出区间outputRange，通过这种方法来改变不同区间值上的不同动效。</p>
+<p>以上介绍的都是Animation中比较常用的API，还有诸如跟踪动态值，输入事件，响应当前动画值，LayoutAnimation 等灯，这里先不做总结，以后再做讲解。</p>
+<p>OK，下面切入正题，到底如何实现像下图一样流畅的上拉动画呢？</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1614000-1ffafc63420f168e.gif?imageMogr2/auto-orient/strip" alt="动效.gif"></p>
+<p>思路：<br>1.先将View1布局好，将View2布局到View1下方</p>
+<p>2.点击FlipButton时，改变View2的top坐标，并改变 this.state.pullUp,标记FlipButton的状态</p>
+<p>3.改变View2的top坐标时改变View1的透明度</p>
+<p>4.将FlipButton旋转180度</p>
+<p>5.一定要将FlipButton提至Z轴的最顶端，也就是说要高于 View1 和 View2，在它们的上层，这样才能保证，无论是View1面向于用户面还是View2面向于用户，FlipButton都还是那个最初的FlipButton，并永远面向用户，不会被任何视图覆盖。</p>
+<p>如图：<br>未点击Button时 View1 面向于用户，view2在view1下面</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1614000-7a6393fb80b1f5e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="上拉前.png"></p>
+<p>点击Button，View2置于View1上层，并且Button位置变化<br><img src="http://upload-images.jianshu.io/upload_images/1614000-e92eabaea789ba9d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="上拉后.png"></p>
+<p>核心代码如下：</p>
+<p>在constructor方法中声明我们需要的 pullUpAnim &amp; fadeAnim 并为其赋予初始Value<br>其中pullUpAnim是当点击FlipButton按钮时上滑View2，在这个动画中将插入改变透明度的插值器，来改变View1的透明度，后面会看到相应代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">export default class Voice extends React.Component &#123;</div><div class="line">    constructor(props) &#123;</div><div class="line">        super(props);</div><div class="line">        this.state = &#123;</div><div class="line">        	  pullUp:false,</div><div class="line">            pullUpAnim: &#123;</div><div class="line">                pullUp: new Animated.Value(0),</div><div class="line">            &#125;,</div><div class="line">            fadeAnim: &#123;</div><div class="line">                descriptionAlpha: new Animated.Value(0),</div><div class="line">            &#125;,</div><div class="line">        &#125;;</div><div class="line">        this.onFlipButtonPress = this.onFlipButtonPress.bind(this);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>下面代码都是View1的布局。其中当执行pullUp动画时，插入改变View1背景透明度的动画，其中inputRange为[0,1],outputRange为[1,0],就是，当pullUp.pullUp的value为0时，View1的opacity为1，不透明；而当pullUp.pullUp的value变为1的时候，View1的opacity为0 ，完全透明，用户将看不到View1。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line">   render()&#123;</div><div class="line">	return (</div><div class="line">	&lt;Animated.View style=&#123;[styles.container,</div><div class="line">	&#123;</div><div class="line">	opacity:</div><div class="line">	this.state.pullUpAnim.pullUp.interpolate(&#123;</div><div class="line">	inputRange: [0, 1],</div><div class="line">	outputRange: [1, 0],</div><div class="line">	&#125;)</div><div class="line">	&#125;</div><div class="line">	]&#125;&gt;</div><div class="line">	&lt;View style=&#123;styles.navBar&#125;&gt;</div><div class="line">	&lt;Image style=&#123;[styles.navBarImage,</div><div class="line">	&#123; resizeMode: &apos;stretch&apos; &#125;]&#125;</div><div class="line">	source=&#123;App.Image.bg.voiceHeaderShadow&#125; /&gt;</div><div class="line">	&lt;/View&gt;</div><div class="line">	</div><div class="line">	&lt;View style=&#123;styles.navButtonContainer&#125;&gt;</div><div class="line">	&lt;TouchableOpacity</div><div class="line">	style=&#123;styles.returnBtn&#125;</div><div class="line">	onPress=&#123;this.onReturnButtonPress&#125;&gt;</div><div class="line">	&lt;Image source=&#123;App.Image.btn.navBackWhite&#125; /&gt;</div><div class="line">	&lt;/TouchableOpacity&gt;</div><div class="line">	</div><div class="line">	&lt;TouchableOpacity</div><div class="line">	style=&#123;styles.shareBtn&#125;</div><div class="line">	onPress=&#123;this.onShareButtonPress&#125;&gt;</div><div class="line">	&lt;Image source=&#123;App.Image.btn.navShare&#125; /&gt;</div><div class="line">	&lt;/TouchableOpacity&gt;</div><div class="line">	&lt;/View&gt;</div><div class="line">	</div><div class="line">	&lt;View style=&#123;styles.titleContainer&#125;&gt;</div><div class="line">	&lt;Text style=&#123;styles.title&#125;&gt;</div><div class="line">	&#123;title&#125;</div><div class="line">	&lt;/Text&gt;</div><div class="line">	&lt;/View&gt;</div><div class="line">	&#123;this.state.voiceData &amp;&amp;</div><div class="line">	&lt;NativeComponent.RCTVoicePlayView</div><div class="line">	voiceData=&#123;this.state.voiceData&#125;</div><div class="line">	fromScanQR=&#123;this.state.fromScanQR&#125;</div><div class="line">	style=&#123;&#123;</div><div class="line">	    flexDirection: &apos;row&apos;,</div><div class="line">	    alignItems: &apos;center&apos;,</div><div class="line">	    justifyContent: &apos;center&apos;,</div><div class="line">	    width: App.Constant.screenWidth,</div><div class="line">	    height: App.Constant.screenWidth === 320 ? App.Constant.screenWidth : App.Constant.screenWidth * 1.1,</div><div class="line">	    marginTop: 10,</div><div class="line">	&#125;&#125;</div><div class="line">	/&gt;&#125;</div><div class="line">&#123;this.state.voiceData &amp;&amp;</div><div class="line">    &lt;Animated.View style=&#123;styles.functionContainer&#125;&gt;</div><div class="line">        &lt;TouchableOpacity</div><div class="line">            style=&#123;styles.downloadBtn&#125;</div><div class="line">            onPress=&#123;this.onVoiceDownloadBtnPress&#125;&gt;</div><div class="line">            &#123;this.state.isDownload ?</div><div class="line">                &lt;Image source=&#123;App.Image.btn.voiceDownloaded&#125; /&gt;</div><div class="line">                :</div><div class="line">                &lt;Image source=&#123;App.Image.btn.voiceDownload&#125; /&gt;</div><div class="line">            &#125;</div><div class="line">        &lt;/TouchableOpacity&gt;</div><div class="line">        &lt;TouchableOpacity</div><div class="line">            style=&#123;styles.bookmarkBtn&#125;</div><div class="line">            onPress=&#123;this.onVoiceLikeBtnPress&#125;&gt;</div><div class="line">            &lt;Image source=&#123;this.state.isBookMark ? App.Image.btn.voiceLiked : App.Image.btn.voiceLike&#125; /&gt;</div><div class="line">        &lt;/TouchableOpacity&gt;</div><div class="line"></div><div class="line">        &lt;View style=&#123;styles.voicestarBtnContainer&#125;&gt;</div><div class="line">            &lt;TouchableOpacity</div><div class="line">                style=&#123;styles.voicestarBtn&#125;</div><div class="line">                onPress=&#123;this.onVoiceStarBtnPress&#125;&gt;</div><div class="line">                &lt;Image source=&#123;this.state.isCommented ? App.Image.btn.voiceStared : App.Image.btn.voiceStar&#125; /&gt;</div><div class="line">            &lt;/TouchableOpacity&gt;</div><div class="line">            &#123;this.state.isCommented ?</div><div class="line">                &lt;Text style=&#123;styles.score&#125;&gt;</div><div class="line">                                        &#123;this.state.score.toFixed(1)&#125;</div><div class="line">                                    &lt;/Text&gt; : null</div><div class="line">                                &#125;</div><div class="line">                            &lt;/View&gt;</div><div class="line">                        &lt;/Animated.View&gt;</div><div class="line">                    &#125;</div><div class="line">                &lt;/Animated.View &gt;</div></pre></td></tr></table></figure>
+<p>这里的Comment是我自定义的组件，这里可以理解成View2。从style中可以看出，我将View2的position设为绝对布局，也就是它的位置是固定的，不想对于任何其他控件的位置，不随上下左右控价坐标的改变而改变。而View2的动画效果是从View1的底部逐渐移动到手机屏幕的顶部，同样的，我们给pullUpAnim.pullUp设置再一个插值器，这个插值器主要是针对top属性做修改了，当pullUp为0时，view2的top为屏幕高度，也就是View2距屏幕顶部的距离为screenHeight，当pullUp为1时，View2距屏幕顶部距离为0。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;this.state.voiceData &amp;&amp;</div><div class="line">    &lt;Comment voiceID=&#123;this.state.voiceID&#125;</div><div class="line">        voiceData=&#123;this.state.voiceData&#125;</div><div class="line">        style=&#123;&#123;</div><div class="line">            position: &apos;absolute&apos;,</div><div class="line">            width: App.Constant.screenWidth,</div><div class="line">            height: App.Constant.screenHeight,</div><div class="line">            top: this.state.pullUpAnim.pullUp.interpolate(&#123;</div><div class="line">                inputRange: [0, 1],</div><div class="line">                outputRange: [App.Constant.screenHeight, 0]</div><div class="line">            &#125;),</div><div class="line">        &#125;&#125;</div><div class="line">      displayAnim=&#123;this.state.pullUpAnim.pullUp&#125; /&gt;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>下面这段代码就是对FlipButton的布局 ，上面提到过，FlipButton必须在View1 和 View2的上面，在Z轴的最上面，因此我将它放在View1和View2布局的后面，这种方法比较笨，但是我还没找到如何轻易的将一个组件提到Z轴最顶层。<br>其中FlipButton是自己封装的一个组件，里面主要实现背景色的变化和透明度的变化以及将按钮反转180度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&#123;this.state.voiceData &amp;&amp;</div><div class="line">    &lt;Animated.View style=&#123;&#123;</div><div class="line">        position: &apos;absolute&apos;,</div><div class="line">        marginLeft: 20,</div><div class="line">        top: this.state.pullUpAnim.pullUp.interpolate(&#123;</div><div class="line">            inputRange: [0, 1],</div><div class="line">            outputRange: [App.Constant.screenHeight - 40, 30],</div><div class="line">        &#125;),</div><div class="line">        opacity: this.state.fadeAnim.descriptionAlpha.interpolate(&#123;</div><div class="line">            inputRange: [0, 1],</div><div class="line">            outputRange: [1, 0]</div><div class="line">        &#125;),</div><div class="line">    &#125;&#125;&gt;</div><div class="line">        &lt;FlipButton</div><div class="line">            flip=&#123;this.state.pullUp&#125;</div><div class="line">            style=&#123;&apos;white&apos;&#125;</div><div class="line">            onPress=&#123;this.onFlipButtonPress&#125;</div><div class="line">            /&gt;</div><div class="line">    &lt;/Animated.View&gt;</div><div class="line">   		)</div><div class="line">   &#125;   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面代码中在onFlipButtonPress方法中，使用到了渐变动画 timing 执行时间为180毫秒，并为toValue设置新的pullUp，因为上文提到的插值器会根据改值的变化而进行不同的响应，实现不同的透明度变化或top变化。this.state.pullUp的值为 bool 值，false 时为0，true时为1。之所以定义这个值，是因为在自定义的FlipButton中需要使用这个值来配置FlipButton的timing动画。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 点击FlipButton事件</div><div class="line">    onFlipButtonPress() &#123;</div><div class="line">       const pullUp = !this.state.pullUp;</div><div class="line">       Animated.timing(</div><div class="line">           this.state.pullUpAnim.pullUp,</div><div class="line">           &#123;</div><div class="line">               duration: 180,</div><div class="line">               toValue: pullUp</div><div class="line">           &#125;</div><div class="line">       ).start(() =&gt; &#123;</div><div class="line">           this.setState(&#123;</div><div class="line">               pullUp,</div><div class="line">           &#125;);</div><div class="line">       &#125;);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>看到这里，是不是有一种感觉，其实this.state.pullUpAnim.pullUp动画并没有去实现任何动画，而是提供了一个容器而已，供其他插值器有容器可以依附，因为需求中的动画，需要我们在点击按钮时不仅改变View1的透明度，还要改变View2距顶部的位置，所以用基本的动画是无法实现的，必须使用插值器在不同的情况下来实现不同的动画效果。这下知道插值器的强大之处了吧，随时随地有需要就给容器动画加插值器就好啦！</p>
+<p>OK，今天就到这里吧，如果在阅读过程用发现什么问题，欢迎指正，共勉！</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Jeavil/Jeavil.github.io" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
